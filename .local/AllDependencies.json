@@ -66,6 +66,18 @@
           "lib/net40/ClosedXML.dll": {}
         }
       },
+      "CredentialManagement/1.0.2": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "CredentialManagement"
+        ],
+        "compile": {
+          "lib/net35/_._": {}
+        },
+        "runtime": {
+          "lib/net35/CredentialManagement.dll": {}
+        }
+      },
       "CsvHelper/2.13.5": {
         "type": "package",
         "compile": {
@@ -810,6 +822,18 @@
           "build/_._": {}
         }
       },
+      "UiPath.Credentials.Activities/1.1.6479.13204": {
+        "type": "package",
+        "dependencies": {
+          "CredentialManagement": "1.0.2"
+        },
+        "compile": {
+          "lib/net40-client/_._": {}
+        },
+        "runtime": {
+          "lib/net40-client/UiPath.Credentials.Activities.dll": {}
+        }
+      },
       "UiPath.Excel.Activities/2.9.3": {
         "type": "package",
         "dependencies": {
@@ -1167,7 +1191,7 @@
           "lib/net461/UiPath.Platform.dll": {}
         }
       },
-      "UiPath.System.Activities/20.10.1": {
+      "UiPath.System.Activities/20.10.3": {
         "type": "package",
         "dependencies": {
           "CsvHelper": "2.13.5",
@@ -1688,6 +1712,17 @@
         "lib/net40/ClosedXML.dll",
         "lib/net40/ClosedXML.pdb",
         "lib/net40/ClosedXML.xml"
+      ]
+    },
+    "CredentialManagement/1.0.2": {
+      "sha512": "VkP04/jFXaxT3TkcRhzETYtOrznQxRmQ2J1XJdbXz47Bir7hIzPR7mFZk4GJQ4An4gozW+vonpf+iqTHomAkQw==",
+      "type": "package",
+      "path": "credentialmanagement/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        "credentialmanagement.1.0.2.nupkg.sha512",
+        "credentialmanagement.nuspec",
+        "lib/net35/CredentialManagement.dll"
       ]
     },
     "CsvHelper/2.13.5": {
@@ -2968,6 +3003,17 @@
         "uipath.nuspec"
       ]
     },
+    "UiPath.Credentials.Activities/1.1.6479.13204": {
+      "sha512": "2C7e17Lk1G6QenZQwA5q0DETGdAb9K34p6SqPcAOdHHyr+BtYSWLWhXn+zNlMF8ZCr51pHCiBPNp33nok2B3Qw==",
+      "type": "package",
+      "path": "uipath.credentials.activities/1.1.6479.13204",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net40-client/UiPath.Credentials.Activities.dll",
+        "uipath.credentials.activities.1.1.6479.13204.nupkg.sha512",
+        "uipath.credentials.activities.nuspec"
+      ]
+    },
     "UiPath.Excel.Activities/2.9.3": {
       "sha512": "rYWg1JGpheTGtJpNVMOhzIeEcdlejTKRduaBKRKu51VWUcEEdAGtTFRa+/tCT4/bsxQ1d/Iad068sd0NJxOhGQ==",
       "type": "package",
@@ -3146,10 +3192,10 @@
         "uipath.platform.nuspec"
       ]
     },
-    "UiPath.System.Activities/20.10.1": {
-      "sha512": "Ho9XHfnlPXpXxPkCc9wQt5kffIuWKPSiS0TCr2yYrWs1V8cp6XKjZwv2znsB/VRMiHrQdE7ucBnvs3bpQEUouQ==",
+    "UiPath.System.Activities/20.10.3": {
+      "sha512": "TivmsA09tbv+wG9abR93owdCavHXXdB0pOUAPtp9u9LACpQJBcdAOZdp+wwlFNwGnNyq1lKYaUPFbfKepNVmwg==",
       "type": "package",
-      "path": "uipath.system.activities/20.10.1",
+      "path": "uipath.system.activities/20.10.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3188,7 +3234,7 @@
         "lib/net461/tr/UiPath.System.Activities.resources.dll",
         "lib/net461/zh-CN/UiPath.System.Activities.Design.resources.dll",
         "lib/net461/zh-CN/UiPath.System.Activities.resources.dll",
-        "uipath.system.activities.20.10.1.nupkg.sha512",
+        "uipath.system.activities.20.10.3.nupkg.sha512",
         "uipath.system.activities.nuspec"
       ]
     },
@@ -3476,26 +3522,32 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "UiPath.Credentials.Activities >= 1.1.6479.13204 <= 1.1.6479.13204",
       "UiPath.Excel.Activities >= 2.9.3 <= 2.9.3",
       "UiPath.Mail.Activities >= 1.9.3 <= 1.9.3",
-      "UiPath.System.Activities >= 20.10.1 <= 20.10.1",
+      "UiPath.System.Activities >= 20.10.3 <= 20.10.3",
       "UiPath.UIAutomation.Activities >= 20.10.6 <= 20.10.6"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ACER\\.nuget\\packages\\": {}
+    "C:\\Users\\ex_nalzate\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Incidencias de Nomina",
       "projectName": "Incidencias de Nomina",
-      "projectPath": "C:\\Users\\ACER\\Documents\\GIT\\DOSPINOS_Incidencias_De_Nomina\\.local",
-      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ACER\\Documents\\GIT\\DOSPINOS_Incidencias_De_Nomina\\.local"
+      "projectPath": "C:\\Users\\ex_nalzate\\Documents\\UiPath\\DOSPINOS_Incidencias_De_Nomina\\.local",
+      "packagesPath": "C:\\Users\\ex_nalzate\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ex_nalzate\\Documents\\UiPath\\DOSPINOS_Incidencias_De_Nomina\\.local"
     },
     "frameworks": {
       "net461": {
         "dependencies": {
+          "UiPath.Credentials.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.1.6479.13204, 1.1.6479.13204]"
+          },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
@@ -3509,7 +3561,7 @@
           "UiPath.System.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[20.10.1, 20.10.1]"
+            "version": "[20.10.3, 20.10.3]"
           },
           "UiPath.UIAutomation.Activities": {
             "include": "Runtime",
