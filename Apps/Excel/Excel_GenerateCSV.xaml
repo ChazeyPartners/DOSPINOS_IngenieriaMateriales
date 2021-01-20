@@ -1,0 +1,241 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Excel_GenerateCSV" this:Excel_GenerateCSV.in_StrFile="C:\Users\ex_nalzate\Documents\Incidencias de Nomina\Formatos\Formato Incidentes.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_StrFile" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1108,2013.6</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Excel_GenerateCSV_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="22">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Excel_GenerateCSV" sap:VirtualizedContainerService.HintSize="904.8,1948.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:WorkbookApplication" Name="vWorkbook" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="863.2,1856" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[in_StrFile]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="829.6,1746.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="vBoolExiste" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelSelectRange DisplayName="Select Range" sap:VirtualizedContainerService.HintSize="788,60" sap2010:WorkflowViewState.IdRef="ExcelSelectRange_1" Range="A1" SheetName="[vWorkbook.GetSheets.First]" />
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Panel Pestaña'" sap:VirtualizedContainerService.HintSize="788,156" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="f2" KeyModifiers="Alt" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e41559eb-afd8-4de6-ac1a-305e623729fc" InformativeScreenshot="229aaf0055552de56635f1134d9fd564" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' omit:title='Formato Incidentes - Excel' /&gt;&lt;uia automationid='Grid' name='Cuadrícula' role='cuadrícula de datos' /&gt;&lt;uia name='Seleccionar todo' role='elemento del encabezado' tableCol='0' tableRow='0' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="788,712.8" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+              <ui:InterruptibleDoWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="752.8,545.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:UiElementExists DisplayName="Element Exists 'dialog  Guardar como'" Exists="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="711.2,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5721a7b9-ec88-443a-95ee-8a191d05c729" InformativeScreenshot="f904d0d3f4d9e6152f7fb14ff802d58b" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Guardar como' /&gt;&lt;ctrl name='Guardar como' role='dialog' /&gt;" TimeoutMS="1000">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                  </ui:UiElementExists>
+                  <If Condition="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="711.2,305.6" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Se accedio a pantalla de guardar como&quot;]" />
+                    </If.Then>
+                    <If.Else>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Panel Pestaña'" sap:VirtualizedContainerService.HintSize="333.6,156" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="f2" KeyModifiers="Alt" SpecialKey="True">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e41559eb-afd8-4de6-ac1a-305e623729fc" InformativeScreenshot="229aaf0055552de56635f1134d9fd564" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' omit:title='Formato Incidentes - Excel' /&gt;&lt;uia automationid='Grid' name='Cuadrícula' role='cuadrícula de datos' /&gt;&lt;uia name='Seleccionar todo' role='elemento del encabezado' tableCol='0' tableRow='0' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ui:InterruptibleDoWhile.Body>
+              <ui:InterruptibleDoWhile.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="not vBoolExiste" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+              </ui:InterruptibleDoWhile.Condition>
+            </ui:InterruptibleDoWhile>
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'combo box  Tipo:'" sap:VirtualizedContainerService.HintSize="788,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="CSV (delimitado por comas) ">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="32">
+                  <x:String xml:space="preserve">Libro de Excel </x:String>
+                  <x:String xml:space="preserve">Libro de Excel habilitado para macros </x:String>
+                  <x:String xml:space="preserve">Libro binario de Excel </x:String>
+                  <x:String xml:space="preserve">Libro de Excel 97-2003 </x:String>
+                  <x:String xml:space="preserve">CSV UTF-8 (delimitado por comas) </x:String>
+                  <x:String xml:space="preserve">Datos XML </x:String>
+                  <x:String xml:space="preserve">Página web de un solo archivo </x:String>
+                  <x:String xml:space="preserve">Página web </x:String>
+                  <x:String xml:space="preserve">Plantilla de Excel </x:String>
+                  <x:String xml:space="preserve">Plantilla de Excel habilitada para macros </x:String>
+                  <x:String xml:space="preserve">Plantilla de Excel 97-2003 </x:String>
+                  <x:String xml:space="preserve">Texto (delimitado por tabulaciones) </x:String>
+                  <x:String xml:space="preserve">Texto Unicode </x:String>
+                  <x:String xml:space="preserve">Hoja de cálculo XML 2003 </x:String>
+                  <x:String xml:space="preserve">Libro de Microsoft Excel 5.0/95 </x:String>
+                  <x:String xml:space="preserve">CSV (delimitado por comas) </x:String>
+                  <x:String xml:space="preserve">Texto con formato (delimitado por espacios) </x:String>
+                  <x:String xml:space="preserve">Texto (Macintosh) </x:String>
+                  <x:String xml:space="preserve">Texto (MS-DOS) </x:String>
+                  <x:String xml:space="preserve">CSV (Macintosh) </x:String>
+                  <x:String xml:space="preserve">CSV (MS-DOS) </x:String>
+                  <x:String xml:space="preserve">DIF (formato de intercambio de datos) </x:String>
+                  <x:String xml:space="preserve">SYLK (vínculo simbólico) </x:String>
+                  <x:String xml:space="preserve">Complemento de Excel </x:String>
+                  <x:String xml:space="preserve">Complemento de Excel 97-2003 </x:String>
+                  <x:String xml:space="preserve">PDF </x:String>
+                  <x:String xml:space="preserve">Documento XPS </x:String>
+                  <x:String xml:space="preserve">Hoja de cálculo Open XML </x:String>
+                  <x:String xml:space="preserve">Hoja de cálculo de OpenDocument </x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="150b0b88-2dfa-42c8-8e17-fa18d570b581" InformativeScreenshot="6ae56397937f87d65c0925984ca27b03" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Guardar como' /&gt;&lt;wnd aaname='Panel del explorador' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Tipo:' cls='ComboBox' /&gt;&lt;ctrl name='Tipo:' role='combo box' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Edit'" EmptyField="True" sap:VirtualizedContainerService.HintSize="788,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FolderArchivos&quot;).ToString, in_StrFile.Split(&quot;\&quot;c).Last.Replace(&quot;.xlsx&quot;,&quot;.csv&quot;))]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ae53f215-a18b-473f-a19f-6993117fe695" InformativeScreenshot="1051833f956bd4bc03fe0101789e37d8" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Guardar como' /&gt;&lt;wnd aaname='Panel del explorador' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nombre de archivo:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;&lt;ctrl name='Nombre de archivo:' role='editable text' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="788,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7b401544-d744-4b32-8a40-a62ebdefe213" InformativeScreenshot="61d93b93956903e5299ea525b658f8b9" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Guardar como' /&gt;&lt;wnd ctrlid='1' title='&amp;amp;Guardar' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="788,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7b401544-d744-4b32-8a40-a62ebdefe213" InformativeScreenshot="f526f859ac540ca67bbfc23102db2839" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Confirmar Guardar como' /&gt;&lt;wnd aaname='Confirmar Guardar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Sí' cls='Button' title='&amp;amp;Sí' /&gt;" TimeoutMS="1500">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+  </Sequence>
+</Activity>
