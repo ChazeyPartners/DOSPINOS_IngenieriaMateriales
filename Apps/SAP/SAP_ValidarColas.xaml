@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1200.8,2429.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1350.4,2698.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SAP_ValidarColas_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -54,7 +54,6 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
@@ -64,9 +63,10 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SAP_ValidarColas" sap:VirtualizedContainerService.HintSize="1211.2,2324.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SAP_ValidarColas" sap:VirtualizedContainerService.HintSize="1360.8,2593.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="vBoolExiste" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="vDtbJobs" />
@@ -77,73 +77,89 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Más'" sap:VirtualizedContainerService.HintSize="1169.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
-      <ui:Click.CursorPosition>
-        <ui:CursorPosition Position="Center">
-          <ui:CursorPosition.OffsetX>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetX>
-          <ui:CursorPosition.OffsetY>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetY>
-        </ui:CursorPosition>
-      </ui:Click.CursorPosition>
-      <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7aabaf3d-e6f9-4ff6-beab-9bc69eca547f" InformativeScreenshot="c252896f4a892ee4f0706af6d1fce037" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' omit:title='SAP Easy Access  -  Menú usuario p. RPACSCEMP RPACSCEMP' idx='*' /&gt;&lt;sap id='tbar[1]/btnvhmore' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:Click.Target>
-    </ui:Click>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Más'" sap:VirtualizedContainerService.HintSize="1169.6,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
-      <ui:Click.CursorPosition>
-        <ui:CursorPosition Position="Center">
-          <ui:CursorPosition.OffsetX>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetX>
-          <ui:CursorPosition.OffsetY>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetY>
-        </ui:CursorPosition>
-      </ui:Click.CursorPosition>
-      <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7aabaf3d-e6f9-4ff6-beab-9bc69eca547f" InformativeScreenshot="ff20ae67da195ca46c5fc96d86ac5175" Selector="&lt;wnd app='saplogon.exe' cls='#32768' idx='*' /&gt;&lt;ctrl name='Contexto' role='popup menu' /&gt;&lt;ctrl name='Sistema' role='menu item' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:Click.Target>
-    </ui:Click>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Más'" sap:VirtualizedContainerService.HintSize="1169.6,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
-      <ui:Click.CursorPosition>
-        <ui:CursorPosition Position="Center">
-          <ui:CursorPosition.OffsetX>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetX>
-          <ui:CursorPosition.OffsetY>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetY>
-        </ui:CursorPosition>
-      </ui:Click.CursorPosition>
-      <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7aabaf3d-e6f9-4ff6-beab-9bc69eca547f" InformativeScreenshot="21f419d09ce670c5e1f2c8dff9525fc8" Selector="&lt;wnd app='saplogon.exe' cls='#32768' idx='*' /&gt;&lt;ctrl name='Sistema' role='popup menu' /&gt;&lt;ctrl automationid='1030' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:Click.Target>
-    </ui:Click>
-    <ui:UiElementExists DisplayName="Element Exists 'Label  Job'" Exists="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="1169.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1319.2,670.4" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="5" RetryInterval="00:00:03">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="375.2,494.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Más'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7aabaf3d-e6f9-4ff6-beab-9bc69eca547f" InformativeScreenshot="c252896f4a892ee4f0706af6d1fce037" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' omit:title='SAP Easy Access  -  Menú usuario p. RPACSCEMP RPACSCEMP' idx='*' /&gt;&lt;sap id='tbar[1]/btnvhmore' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Más'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7aabaf3d-e6f9-4ff6-beab-9bc69eca547f" InformativeScreenshot="ff20ae67da195ca46c5fc96d86ac5175" Selector="&lt;wnd app='saplogon.exe' cls='#32768' idx='*' /&gt;&lt;ctrl name='Contexto' role='popup menu' /&gt;&lt;ctrl name='Sistema' role='menu item' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Más'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7aabaf3d-e6f9-4ff6-beab-9bc69eca547f" InformativeScreenshot="21f419d09ce670c5e1f2c8dff9525fc8" Selector="&lt;wnd app='saplogon.exe' cls='#32768' idx='*' /&gt;&lt;ctrl name='Sistema' role='popup menu' /&gt;&lt;ctrl automationid='1030' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+    <ui:UiElementExists DisplayName="Element Exists 'Label  Job'" Exists="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="1319.2,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9f111c00-daaa-45dc-b7a1-e2beebe7dd7a" InformativeScreenshot="19dbb2660122a257d698bfb7bad4c833" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Resumen de jobs' /&gt;&lt;sap id='usr/lbl[4,1]' /&gt;">
           <ui:Target.TimeoutMS>
@@ -155,7 +171,7 @@
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Actualizar'" sap:VirtualizedContainerService.HintSize="1169.6,107.2" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Actualizar'" sap:VirtualizedContainerService.HintSize="1319.2,107.2" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -177,7 +193,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="1169.6,440" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="1319.2,440" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -212,8 +228,8 @@
         </ui:WindowScope.Body>
       </ui:WindowScope>
     </Sequence>
-    <ui:PathExists DisplayName="Path Exists" Exists="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="1169.6,90.4" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FileJobs&quot;).ToString)]" PathType="File" />
-    <If Condition="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="1169.6,885.6" sap2010:WorkflowViewState.IdRef="If_3">
+    <ui:PathExists DisplayName="Path Exists" Exists="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="1319.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FileJobs&quot;).ToString)]" PathType="File" />
+    <If Condition="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="1319.2,885.6" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="792,736" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
@@ -248,7 +264,11 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <ui:WriteRange AddHeaders="True" DataTable="[vDtbJobs]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[in_Config(&quot;SheetJobs&quot;).ToString]" StartingCell="A1" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FileJobs&quot;).ToString)]" />
+        <If Condition="[vDtbJobs.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="483.2,265.6" sap2010:WorkflowViewState.IdRef="If_4">
+          <If.Then>
+            <ui:WriteRange AddHeaders="True" DataTable="[vDtbJobs]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_Config(&quot;SheetJobs&quot;).ToString]" StartingCell="A1" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FileJobs&quot;).ToString)]" />
+          </If.Then>
+        </If>
       </If.Else>
     </If>
   </Sequence>
