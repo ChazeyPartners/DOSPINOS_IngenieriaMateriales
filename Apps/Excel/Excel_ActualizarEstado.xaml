@@ -5,11 +5,12 @@
     <x:Property Name="in_StrJob" Type="InArgument(x:String)" />
     <x:Property Name="in_StrEstado" Type="InArgument(x:String)" />
     <x:Property Name="in_StrObservaciones" Type="InArgument(x:String)" />
+    <x:Property Name="in_StrFecha" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1108,1695.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1108,1944.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_ActualizarEstado_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -39,7 +40,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -60,9 +61,16 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Excel_ActualizarEstado" sap:VirtualizedContainerService.HintSize="794.4,1590.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Excel_ActualizarEstado" sap:VirtualizedContainerService.HintSize="794.4,1840" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbIncidentes" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbAux" />
@@ -113,6 +121,18 @@
           </Assign.To>
           <Assign.Value>
             <InArgument x:TypeArguments="x:Object">[in_StrObservaciones]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <If Condition="[String.IsNullOrEmpty(in_StrFecha)]" sap:VirtualizedContainerService.HintSize="752.8,209.6" sap2010:WorkflowViewState.IdRef="If_5">
+      <If.Else>
+        <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Object">[vDtbAux.Rows(0)(in_Config("ColFecha").ToString)]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Object">[in_StrFecha]</InArgument>
           </Assign.Value>
         </Assign>
       </If.Else>

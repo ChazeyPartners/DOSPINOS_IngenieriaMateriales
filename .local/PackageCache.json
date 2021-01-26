@@ -2,24 +2,14 @@
   "Packages": [
     {
       "Package": {
-        "Id": "UiPath.Excel.Activities",
-        "Version": "2.9.3"
+        "Id": "UiPath.Credentials.Activities",
+        "Version": "1.1.6479.13204"
       },
       "Assemblies": [
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\closedxml/0.87.1\\lib/net40/ClosedXML.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\documentformat.openxml/2.5.0\\lib/DocumentFormat.OpenXml.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.visualstudio.ole.interop/7.10.6071\\lib/Microsoft.VisualStudio.OLE.Interop.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OOXML.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXml4Net.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXmlFormats.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\sharpziplib/1.2.0\\lib/net45/ICSharpCode.SharpZipLib.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities/2.9.3\\lib/net461/UiPath.Excel.Activities.Design.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities/2.9.3\\lib/net461/UiPath.Excel.Activities.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities/2.9.3\\lib/net461/UiPath.Excel.dll"
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\credentialmanagement/1.0.2\\lib/net35/CredentialManagement.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.credentials.activities/1.1.6479.13204\\lib/net40-client/UiPath.Credentials.Activities.dll"
       ],
-      "Path": "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.3"
+      "Path": "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.credentials.activities\\1.1.6479.13204"
     },
     {
       "Package": {
@@ -49,6 +39,63 @@
         "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.mail.activities/1.9.3\\lib/net461/UiPath.Mail.dll"
       ],
       "Path": "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.mail.activities\\1.9.3"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.System.Activities",
+        "Version": "20.10.3"
+      },
+      "Assemblies": [
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnet.signalr.client/2.4.0\\lib/net45/Microsoft.AspNet.SignalR.Client.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Client.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.http.connections.common/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Common.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.http.features/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.signalr.client/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.Core.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.signalr.common/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.signalr.protocols.json/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.bcl.asyncinterfaces/1.1.1\\lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.configuration/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.configuration.abstractions/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.configuration.binder/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.dependencyinjection/3.1.6\\lib/net461/Microsoft.Extensions.DependencyInjection.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.logging/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Logging.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.logging.abstractions/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.options/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Options.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.primitives/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.rest.clientruntime/2.3.21\\lib/net461/Microsoft.Rest.ClientRuntime.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\sharpziplib/1.2.0\\lib/net45/ICSharpCode.SharpZipLib.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.buffers/4.5.1\\lib/net461/System.Buffers.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.componentmodel.annotations/4.7.0\\lib/net461/System.ComponentModel.Annotations.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.io.abstractions/3.0.10\\lib/net40/System.IO.Abstractions.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.io.pipelines/4.7.1\\lib/netstandard2.0/System.IO.Pipelines.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.memory/4.5.4\\lib/net461/System.Memory.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.numerics.vectors/4.5.0\\lib/net46/System.Numerics.Vectors.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.runtime.compilerservices.unsafe/4.7.1\\lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.text.encodings.web/4.7.1\\lib/net461/System.Text.Encodings.Web.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.text.json/4.7.2\\lib/net461/System.Text.Json.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.threading.channels/4.7.1\\lib/net461/System.Threading.Channels.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.threading.tasks.extensions/4.5.4\\lib/net461/System.Threading.Tasks.Extensions.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.platform/20.10.4\\lib/net461/UiPath.Platform.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Docking.Wpf.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Shared.Wpf.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.SyntaxEditor.Addons.DotNet.Wpf.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.SyntaxEditor.Wpf.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Text.Addons.DotNet.Wpf.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Text.LLParser.Wpf.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Text.Wpf.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Wizard.Wpf.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/UiPath.OrchestratorClient.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/UiPath.System.Activities.Design.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/UiPath.System.Activities.dll"
+      ],
+      "Path": "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities\\20.10.3"
     },
     {
       "Package": {
@@ -112,71 +159,24 @@
     },
     {
       "Package": {
-        "Id": "UiPath.Credentials.Activities",
-        "Version": "1.1.6479.13204"
+        "Id": "UiPath.Excel.Activities",
+        "Version": "2.9.5"
       },
       "Assemblies": [
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\credentialmanagement/1.0.2\\lib/net35/CredentialManagement.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.credentials.activities/1.1.6479.13204\\lib/net40-client/UiPath.Credentials.Activities.dll"
-      ],
-      "Path": "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.credentials.activities\\1.1.6479.13204"
-    },
-    {
-      "Package": {
-        "Id": "UiPath.System.Activities",
-        "Version": "20.10.3"
-      },
-      "Assemblies": [
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\closedxml/0.87.1\\lib/net40/ClosedXML.dll",
         "C:\\Users\\ex_nalzate\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnet.signalr.client/2.4.0\\lib/net45/Microsoft.AspNet.SignalR.Client.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Client.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.http.connections.common/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Common.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.http.features/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.signalr.client/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.Core.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.signalr.common/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.aspnetcore.signalr.protocols.json/3.1.6\\lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.bcl.asyncinterfaces/1.1.1\\lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.configuration/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.configuration.abstractions/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.configuration.binder/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.dependencyinjection/3.1.6\\lib/net461/Microsoft.Extensions.DependencyInjection.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.logging/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Logging.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.logging.abstractions/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.options/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Options.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.extensions.primitives/3.1.6\\lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.rest.clientruntime/2.3.21\\lib/net461/Microsoft.Rest.ClientRuntime.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\documentformat.openxml/2.5.0\\lib/DocumentFormat.OpenXml.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\microsoft.visualstudio.ole.interop/7.10.6071\\lib/Microsoft.VisualStudio.OLE.Interop.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OOXML.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXml4Net.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXmlFormats.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.dll",
         "C:\\Users\\ex_nalzate\\.nuget\\packages\\sharpziplib/1.2.0\\lib/net45/ICSharpCode.SharpZipLib.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.buffers/4.5.1\\lib/net461/System.Buffers.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.componentmodel.annotations/4.7.0\\lib/net461/System.ComponentModel.Annotations.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.io.abstractions/3.0.10\\lib/net40/System.IO.Abstractions.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.io.pipelines/4.7.1\\lib/netstandard2.0/System.IO.Pipelines.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.memory/4.5.4\\lib/net461/System.Memory.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.numerics.vectors/4.5.0\\lib/net46/System.Numerics.Vectors.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.runtime.compilerservices.unsafe/4.7.1\\lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.text.encodings.web/4.7.1\\lib/net461/System.Text.Encodings.Web.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.text.json/4.7.2\\lib/net461/System.Text.Json.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.threading.channels/4.7.1\\lib/net461/System.Threading.Channels.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.threading.tasks.extensions/4.5.4\\lib/net461/System.Threading.Tasks.Extensions.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.platform/20.10.4\\lib/net461/UiPath.Platform.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Docking.Wpf.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Shared.Wpf.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.SyntaxEditor.Addons.DotNet.Wpf.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.SyntaxEditor.Wpf.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Text.Addons.DotNet.Wpf.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Text.LLParser.Wpf.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Text.Wpf.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/ActiproSoftware.Wizard.Wpf.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/UiPath.OrchestratorClient.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/UiPath.System.Activities.Design.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities/20.10.3\\lib/net461/UiPath.System.Activities.dll"
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities/2.9.5\\lib/net461/UiPath.Excel.Activities.Design.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities/2.9.5\\lib/net461/UiPath.Excel.Activities.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities/2.9.5\\lib/net461/UiPath.Excel.dll"
       ],
-      "Path": "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.system.activities\\20.10.3"
+      "Path": "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.5"
     }
   ],
   "Conflicts": [],
@@ -815,7 +815,7 @@
     },
     "UiPath.Excel.Activities": {
       "Id": "UiPath.Excel.Activities",
-      "Version": "2.9.3",
+      "Version": "2.9.5",
       "Dependencies": [
         {
           "Item1": "ClosedXML",
@@ -1703,14 +1703,14 @@
     {
       "Package": {
         "Id": "UiPath.Excel.Activities",
-        "Version": "2.9.3"
+        "Version": "2.9.5"
       },
       "Assemblies": [
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.3\\lib\\net461\\UiPath.Excel.Activities.Design.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.3\\lib\\net461\\UiPath.Excel.Activities.dll",
-        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.3\\lib\\net461\\UiPath.Excel.dll"
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.5\\lib\\net461\\UiPath.Excel.Activities.Design.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.5\\lib\\net461\\UiPath.Excel.Activities.dll",
+        "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.5\\lib\\net461\\UiPath.Excel.dll"
       ],
-      "Path": "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.3"
+      "Path": "C:\\Users\\ex_nalzate\\.nuget\\packages\\uipath.excel.activities\\2.9.5"
     },
     {
       "Package": {
