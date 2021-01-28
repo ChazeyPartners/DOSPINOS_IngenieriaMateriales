@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1108,1112</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1108,1775.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_ValidarArchivo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -36,7 +36,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -59,20 +59,31 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Excel_ValidarArchivo" sap:VirtualizedContainerService.HintSize="524.8,1007.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Excel_ValidarArchivo" sap:VirtualizedContainerService.HintSize="794.4,1710.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="vWorkbook" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbPorCargar" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbCargado" />
+      <Variable x:TypeArguments="x:String" Name="vStrCol1" />
+      <Variable x:TypeArguments="x:String" Name="vStrCol2" />
+      <Variable x:TypeArguments="sd:DataTable" Name="vDtbFaltantes" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="483.2,262.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString,in_Config(&quot;FolderArchivos&quot;).ToString, in_StrArchivo.Replace(&quot;.xlsx&quot;,&quot;SAP.xlsx&quot;))]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="752.8,262.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString,in_Config(&quot;FolderArchivos&quot;).ToString, in_StrArchivo.Replace(&quot;.xlsx&quot;,&quot;SAP.xlsx&quot;))]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -89,15 +100,15 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[vDtbCargado]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="sd:DataTable">[vDtbCargado.AsEnumerable.Where(Function(fila) String.IsNullOrEmpty(fila(in_Config("ColPERNR").ToString).ToString)).CopyToDataTable]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable">[vDtbCargado.AsEnumerable.Where(Function(fila) not String.IsNullOrEmpty(fila(in_Config("ColPERNR").ToString).ToString)).CopyToDataTable]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="483.2,262.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString, in_StrArchivo)]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="752.8,262.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString, in_StrArchivo)]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -114,6 +125,86 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <If Condition="[vDtbCargado.Rows.Count &gt;= vDtbPorCargar.Rows.Count]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_1" />
+    <Assign sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[vStrCol1]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">BETRG</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[vStrCol2]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Importe</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[vDtbPorCargar.AsEnumerable.Where(Function(fila) vDtbCargado.AsEnumerable.Where(Function(filac) filac(in_Config(&quot;ColPERNR&quot;).ToString).ToString.Trim.ToLower.Equals(  fila(in_Config(&quot;ColPERNR&quot;).ToString).ToString.Trim.ToLower) And _ &#xD;&#xA;filac(vStrCol1).ToString.Trim.ToLower.Equals( fila(vStrCol2).ToString.Trim.ToLower)).Count = 0).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="752.8,712.8" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="375.2,559.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="vStrTabla" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="333.6,64" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[vDtbFaltantes]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[vDtbPorCargar.AsEnumerable.Where(Function(fila) vDtbCargado.AsEnumerable.Where(Function(filac) filac(in_Config("ColPERNR").ToString).ToString.Trim.ToLower.Equals(  fila(in_Config("ColPERNR").ToString).ToString.Trim.ToLower) And _ 
+filac(vStrCol1).ToString.Trim.ToLower.Equals( fila(vStrCol2).ToString.Trim.ToLower)).Count = 0).CopyToDataTable]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:OutputDataTable DataTable="[vDtbFaltantes]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[vStrTabla]" />
+          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Se encontro inconsistencias entre lo que se cargo para el ID &quot;+in_StrArchivo.Split({&quot;ID&quot;}, StringSplitOptions.None).Last.Replace(&quot;.xlsx&quot;,&quot;&quot;) _ &#xD;&#xA;+ vbNewLine + &quot;Los registros faltantes son los siguientes:&quot;+vbNewLine+ vStrTabla]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject=":: El robot enocntro inconsistencia entre lo cargado y lo que se tenia que cargar::" To="[in_Config(&quot;CorreoResultados&quot;).ToString]">
+            <ui:SendOutlookMail.Files>
+              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+            </ui:SendOutlookMail.Files>
+          </ui:SendOutlookMail>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrID">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrArchivo" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrJob" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">
+                <Literal x:TypeArguments="x:String">NO VALIDO</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Se encontraron &quot;+vDtbFaltantes.rows.Count.ToString+ &quot; registros diferentes&quot;" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StrID">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrArchivo" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StrJob" />
+            <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">
+              <Literal x:TypeArguments="x:String">VALIDADO</Literal>
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones" />
+            <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha" />
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </If.Else>
+    </If>
   </Sequence>
 </Activity>
