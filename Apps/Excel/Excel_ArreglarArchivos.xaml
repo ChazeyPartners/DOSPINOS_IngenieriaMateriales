@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1108,4864.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1108,5325.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_ArreglarArchivos_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -73,7 +73,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Excel_ArreglarArchivos" sap:VirtualizedContainerService.HintSize="940,4760" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Excel_ArreglarArchivos" sap:VirtualizedContainerService.HintSize="940,5220.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="vWorkbook" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbTemplate" />
@@ -87,14 +87,15 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="898.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando Arreglar archivos&quot;]" />
     <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[vDtbTemplate]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="898.4,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_Config(&quot;SheetTemplates&quot;).ToString]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaFormatos&quot;).ToString, in_Config(&quot;FolderTemplates&quot;).ToString, inStrFormato+&quot;.xlsx&quot;)]" />
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="898.4,4311.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[inStrFile]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="898.4,4444" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[inStrFile]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="864.8,4201.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="864.8,4334.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="vStrRango" />
             </Sequence.Variables>
@@ -358,6 +359,7 @@
                 <InArgument x:TypeArguments="x:Double" xml:space="preserve">[vDtbTabla.AsEnumerable.Select(Function(fila) If(Double.TryParse(fila(out_StrColumn).ToString, vDblPERNR),  fila(out_StrColumn).ToString, "0")).ToArray.Sum(Function(valor)CDbl(valor))]</InArgument>
               </Assign.Value>
             </Assign>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="823.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sumatoria: &quot;+vDblPERNR.ToString+&quot;|&quot;+vDblColumn.ToString]" />
             <ui:ExcelSaveWorkbook DisplayName="Save Workbook" sap:VirtualizedContainerService.HintSize="823.2,22.4" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
             <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="823.2,60" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[vWorkbook]" />
           </Sequence>
@@ -373,5 +375,7 @@
         <InArgument x:TypeArguments="x:Boolean">[vDtbConsolidado.AsEnumerable.Where(Function(fila) fila(in_Config("ColPERNR").ToString).ToString.Equals(vDblPERNR.ToString) and fila(in_Config("ColCColumn").ToString).ToString.Equals(vDblColumn.ToString)).Count &gt; 0]</InArgument>
       </Assign.Value>
     </Assign>
+    <ui:KillProcess Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="898.4,22.4" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="EXCEL" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="898.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Iniciando Arreglar archivos&quot;]" />
   </Sequence>
 </Activity>

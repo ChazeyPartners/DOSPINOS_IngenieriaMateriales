@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1203.2,1920</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1203.2,2185.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Add2Queues_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -68,7 +68,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Add2Queues" sap:VirtualizedContainerService.HintSize="1213.6,1815.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Add2Queues" sap:VirtualizedContainerService.HintSize="1213.6,2080.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbRegistros" />
       <Variable x:TypeArguments="s:String[]" Name="vArrColumnas" />
@@ -79,6 +79,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1172,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Iniciando Add Queues&quot;]" />
     <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[vDtbRegistros]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1172,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[in_Config(&quot;SheetIncidentes&quot;).ToString]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FileSalida&quot;).ToString)]" />
     <Assign sap:VirtualizedContainerService.HintSize="1172,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
@@ -88,7 +89,7 @@
         <InArgument x:TypeArguments="s:String[]">[(From dc In vDtbRegistros.Columns.Cast(Of DataColumn) Select dc.ColumnName).ToArray()]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[vDtbRegistros.AsEnumerable.Where(Function(fila) NOT fila(in_Config(&quot;ColEstado&quot;).ToString).ToString.ToUpper.Trim.Equals(&quot;EXITOSO&quot;) AND NOT fila(in_Config(&quot;ColEstado&quot;).ToString).ToString.ToUpper.Trim.Equals(&quot;NO PROCESABLE&quot;) AND NOT fila(in_Config(&quot;ColEstado&quot;).ToString).ToString.ToUpper.Trim.Equals(&quot;REGISTRADO&quot;) ).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1172,1494.4" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[vDtbRegistros.AsEnumerable.Where(Function(fila) fila(in_Config(&quot;ColEstado&quot;).ToString).ToString.ToUpper.Trim.Equals(&quot;FALLIDO&quot;) or String.IsNullOrEmpty(fila(in_Config(&quot;ColEstado&quot;).ToString).ToString.Trim)).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1172,1494.4" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="794.4,1344.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
@@ -154,5 +155,6 @@
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;No se encontraron incidencias para cargar en la cola&quot;]" />
       </If.Else>
     </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1172,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Finalizando Add Queues&quot;]" />
   </Sequence>
 </Activity>
