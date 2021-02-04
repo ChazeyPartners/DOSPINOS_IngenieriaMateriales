@@ -264,7 +264,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Se encontro el template &quot;+vStrFileV]" />
-                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{file.Split(&quot;\&quot;c).Last,vStrFileV,&quot;&quot;,&quot;&quot;,&quot;-&quot;,&quot;-&quot;}]" DataTable="[vDtbIncidentes]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{file.Split(&quot;\&quot;c).Last,vStrFileV,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;}]" DataTable="[vDtbIncidentes]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
                       </Sequence>
                     </If.Else>
                   </If>

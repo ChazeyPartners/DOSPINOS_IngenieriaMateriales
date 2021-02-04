@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1312.8,6460</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1312.8,6591.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SeSuite_Descarga_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -70,10 +70,9 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SeSuite_Descarga" sap:VirtualizedContainerService.HintSize="1323.2,6355.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SeSuite_Descarga" sap:VirtualizedContainerService.HintSize="1323.2,6526.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="vSecPass" />
       <Variable x:TypeArguments="x:String" Name="vStrUser" />
@@ -137,7 +136,7 @@
         <ActivityFunc x:TypeArguments="x:Boolean" />
       </ui:RetryScope.Condition>
     </ui:RetryScope>
-    <Sequence sap:VirtualizedContainerService.HintSize="1281.6,5156" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap:VirtualizedContainerService.HintSize="1281.6,5327.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="vBoolExisteRegistro" />
         <Variable x:TypeArguments="x:Int32" Name="vIntRow" />
@@ -243,18 +242,18 @@
           <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="not vBoolExiste AND vIntCant &lt; 5" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
         </ui:InterruptibleWhile.Condition>
       </ui:InterruptibleWhile>
-      <If Condition="[vBoolExiste]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="1240,3889.6" sap2010:WorkflowViewState.IdRef="If_11">
+      <If Condition="[vBoolExiste]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="1240,4060.8" sap2010:WorkflowViewState.IdRef="If_11">
         <If.Then>
-          <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="862.4,3740" sap2010:WorkflowViewState.IdRef="Sequence_33">
+          <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="862.4,3911.2" sap2010:WorkflowViewState.IdRef="Sequence_33">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:RetryScope DisplayName="Reintentar ámbito" sap:VirtualizedContainerService.HintSize="820.8,3647.2" sap2010:WorkflowViewState.IdRef="RetryScope_5" NumberOfRetries="3" RetryInterval="00:00:05">
+            <ui:RetryScope DisplayName="Reintentar ámbito" sap:VirtualizedContainerService.HintSize="820.8,3818.4" sap2010:WorkflowViewState.IdRef="RetryScope_5" NumberOfRetries="3" RetryInterval="00:00:05">
               <ui:RetryScope.ActivityBody>
                 <ActivityAction>
-                  <Sequence DisplayName="Acción" sap:VirtualizedContainerService.HintSize="779.2,3471.2" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <Sequence DisplayName="Acción" sap:VirtualizedContainerService.HintSize="779.2,3642.4" sap2010:WorkflowViewState.IdRef="Sequence_32">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -374,7 +373,7 @@
                                       </ui:CursorPosition>
                                     </ui:Click.CursorPosition>
                                     <ui:Click.Target>
-                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c8e3c531-0cf8-4ed9-9904-123d7ec5192a" InformativeScreenshot="8d708bb1cce339158ba1d6fc94e37630" Selector="&lt;html app='chrome.exe' title='Ejecución de actividad (Tarea)' /&gt;&lt;webctrl id='iframe' tag='IFRAME' /&gt;&lt;webctrl tag='IFRAME' parentid='center_frame_3q-innerCt' /&gt;&lt;webctrl id='t_content_gridframe' tag='TABLE' /&gt;&lt;webctrl tableCol='12' tag='TD' tableRow='{{vIntRow}}' /&gt;">
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c8e3c531-0cf8-4ed9-9904-123d7ec5192a" InformativeScreenshot="8d708bb1cce339158ba1d6fc94e37630" Selector="&lt;html app='chrome.exe' title='Ejecución de actividad (Tarea)' /&gt;&lt;webctrl id='iframe' tag='IFRAME' /&gt;&lt;webctrl src='https://sesuite.dospinos.com/sesuite/v*/common/baseclass/mai*' tag='IFRAME' /&gt;&lt;webctrl id='t_content_gridframe' tag='TABLE' /&gt;&lt;webctrl idx='{{vIntRow}}' tableCol='13' tag='TD' /&gt;">
                                         <ui:Target.TimeoutMS>
                                           <InArgument x:TypeArguments="x:Int32" />
                                         </ui:Target.TimeoutMS>
@@ -493,7 +492,7 @@
                           </Assign>
                           <ui:UiElementExists DisplayName="Element Exists 'TD'" Exists="[vBoolExisteRegistro]" sap:VirtualizedContainerService.HintSize="660.8,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_15">
                             <ui:UiElementExists.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f42c3776-f8ea-4db7-a051-805ab41354f0" InformativeScreenshot="28b4cecce5957a077113733d70568e6c" Selector="&lt;html app='chrome.exe' title='Ejecución de actividad (Tarea)' /&gt;&lt;webctrl id='iframe' tag='IFRAME' /&gt;&lt;webctrl tag='IFRAME' parentid='center_frame_3q-innerCt' /&gt;&lt;webctrl id='t_content_gridframe' tag='TABLE' /&gt;&lt;webctrl tableCol='12' tag='TD' tableRow='{{vIntRow}}' /&gt;" TimeoutMS="4000">
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f42c3776-f8ea-4db7-a051-805ab41354f0" InformativeScreenshot="28b4cecce5957a077113733d70568e6c" Selector="&lt;html app='chrome.exe' title='Ejecución de actividad (Tarea)' /&gt;&lt;webctrl id='iframe' tag='IFRAME' /&gt;&lt;webctrl src='https://sesuite.dospinos.com/sesuite/v*/common/baseclass/mai*' tag='IFRAME' /&gt;&lt;webctrl id='t_content_gridframe' tag='TABLE' /&gt;&lt;webctrl idx='{{vIntRow}}' tableCol='13' tag='TD' /&gt;" TimeoutMS="4000">
                                 <ui:Target.WaitForReady>
                                   <InArgument x:TypeArguments="ui:WaitForReady" />
                                 </ui:Target.WaitForReady>
