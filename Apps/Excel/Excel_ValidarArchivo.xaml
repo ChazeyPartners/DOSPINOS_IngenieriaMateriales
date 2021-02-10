@@ -189,11 +189,19 @@ filac(vStrCol1).ToString.Trim.ToLower.Equals( fila(vStrCol2).ToString.Trim.ToLow
           </TryCatch>
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_StrArchivo]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrID">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrArchivo" />
+              </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrJob" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">NO VALIDO</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">["Se encontraron "+vDtbFaltantes.rows.Count.ToString+ " registros diferentes"]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">
+                <Literal x:TypeArguments="x:String">INCONCISTENCIAS</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Se encontraron &quot;+vDtbFaltantes.rows.Count.ToString+ &quot; registros diferentes&quot;" />
+              </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>

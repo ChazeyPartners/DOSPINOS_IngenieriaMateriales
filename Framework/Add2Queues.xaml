@@ -5,10 +5,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1203.2,2185.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1203.2,3134.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Add2Queues_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="44">
+    <scg:List x:TypeArguments="x:String" Capacity="23">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -35,7 +35,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -68,11 +68,12 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Add2Queues" sap:VirtualizedContainerService.HintSize="1213.6,2080.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Add2Queues" sap:VirtualizedContainerService.HintSize="1213.6,2989.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbRegistros" />
       <Variable x:TypeArguments="s:String[]" Name="vArrColumnas" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbRegistrosAux" />
+      <Variable x:TypeArguments="ui:QueueItem" Name="Transaction" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -80,6 +81,37 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1172,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Iniciando Add Queues&quot;]" />
+    <ui:InterruptibleDoWhile Condition="[Transaction isnot nothing]" DisplayName="Hacer mientras" sap:VirtualizedContainerService.HintSize="1172,736" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+      <ui:InterruptibleDoWhile.Body>
+        <Sequence sap:VirtualizedContainerService.HintSize="524.8,568.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get a transaction item from the specified Orchestrator queue.&#xA;If queues are not used in this process, replace this activity with the appropriated logic to retrieve transaction items.&#xA;For example, if transactions are rows from a DataTable, the row corresponding to the current transaction is retrieved at this point." DisplayName="Get transaction item" sap:VirtualizedContainerService.HintSize="483.2,226.4" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" TransactionItem="[Transaction]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:GetQueueItem>
+          <If Condition="[Transaction is Nothing]" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_3">
+            <If.Else>
+              <ui:SetTransactionStatus ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" ContinueOnError="False" DisplayName="Set transaction status (Business Exception status)" ErrorType="Business" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_1" Reason="No procesada por detención del proceso" Status="Failed" TransactionItem="[Transaction]">
+                <ui:SetTransactionStatus.Analytics>
+                  <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+                </ui:SetTransactionStatus.Analytics>
+                <ui:SetTransactionStatus.Output>
+                  <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+                </ui:SetTransactionStatus.Output>
+              </ui:SetTransactionStatus>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:InterruptibleDoWhile.Body>
+    </ui:InterruptibleDoWhile>
+    <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="1172,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Queue vaciada&quot;]" />
     <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[vDtbRegistros]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1172,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[in_Config(&quot;SheetIncidentes&quot;).ToString]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FileSalida&quot;).ToString)]" />
     <Assign sap:VirtualizedContainerService.HintSize="1172,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
@@ -89,7 +121,7 @@
         <InArgument x:TypeArguments="s:String[]">[(From dc In vDtbRegistros.Columns.Cast(Of DataColumn) Select dc.ColumnName).ToArray()]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[vDtbRegistros.AsEnumerable.Where(Function(fila) fila(in_Config(&quot;ColEstado&quot;).ToString).ToString.ToUpper.Trim.Equals(&quot;FALLIDO&quot;) or String.IsNullOrEmpty(fila(in_Config(&quot;ColEstado&quot;).ToString).ToString.Trim)).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1172,1494.4" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[vDtbRegistros.AsEnumerable.Where(Function(fila) fila(in_Config(&quot;ColEstado&quot;).ToString).ToString.ToUpper.Trim.Equals(&quot;NO CARGADO&quot;) or String.IsNullOrEmpty(fila(in_Config(&quot;ColEstado&quot;).ToString).ToString.Trim)).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1172,1494.4" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="794.4,1344.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
@@ -103,7 +135,7 @@
               <OutArgument x:TypeArguments="sd:DataTable">[vDtbRegistrosAux]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="sd:DataTable">[vDtbRegistros.AsEnumerable.Where(Function(fila) NOT fila(in_Config("ColEstado").ToString).ToString.ToUpper.Trim.Equals("EXITOSO") AND NOT fila(in_Config("ColEstado").ToString).ToString.ToUpper.Trim.Equals("NO PROCESABLE") AND NOT fila(in_Config("ColEstado").ToString).ToString.ToUpper.Trim.Equals("REGISTRADO") ).CopyToDataTable]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable">[vDtbRegistros.AsEnumerable.Where(Function(fila) fila(in_Config("ColEstado").ToString).ToString.ToUpper.Trim.Equals("NO CARGADO") or String.IsNullOrEmpty(fila(in_Config("ColEstado").ToString).ToString.Trim)).CopyToDataTable]</InArgument>
             </Assign.Value>
           </Assign>
           <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[vDtbRegistrosAux]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="752.8,208.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">

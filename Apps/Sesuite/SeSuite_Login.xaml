@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1108,4227.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1108,4382.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SeSuite_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -73,19 +73,19 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SeSuite_Login" sap:VirtualizedContainerService.HintSize="869.6,4122.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SeSuite_Login" sap:VirtualizedContainerService.HintSize="869.6,4277.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser Hidden="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" CommunicationMethod="Native" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="828,4029.6" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" NewSession="True" Url="[in_Config(&quot;URLSeSuite&quot;).ToString]">
+    <ui:OpenBrowser Hidden="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" CommunicationMethod="Native" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="828,4184.8" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" NewSession="True" Url="[in_Config(&quot;URLSeSuite&quot;).ToString]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="794.4,3927.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="794.4,4082.4" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="vBoolProfile" />
             </Sequence.Variables>
@@ -164,7 +164,7 @@
                 <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Iniciando Login&quot;]" />
               </If.Else>
             </If>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="752.8,2822.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="752.8,2977.6" sap2010:WorkflowViewState.IdRef="Sequence_14">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="vBoolUser" />
                 <Variable x:TypeArguments="x:Boolean" Name="vBoolPass" />
@@ -374,9 +374,17 @@
                   </ui:Target>
                 </ui:UiElementExists.Target>
               </ui:UiElementExists>
-              <If Condition="[vBoolProfile]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="619.2,242.4" sap2010:WorkflowViewState.IdRef="If_17">
+              <If Condition="[vBoolProfile]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="619.2,397.6" sap2010:WorkflowViewState.IdRef="If_17">
                 <If.Then>
-                  <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;LoginSuite: LogIn Validado&quot;]" />
+                  <Sequence sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;LoginSuite: LogIn Validado&quot;]" />
+                    <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="MaximizeWindow_3" />
+                  </Sequence>
                 </If.Then>
                 <If.Else>
                   <Throw Exception="[new BusinessRuleException(&quot;LoginSuite: No se validó el login correctamente, verifique credenciales&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_12" />
