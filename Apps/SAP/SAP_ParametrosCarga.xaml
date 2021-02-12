@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1255.2,4058.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1410.4,4212</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SAP_ParametrosCarga_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -68,7 +68,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SAP_ParametrosCarga" sap:VirtualizedContainerService.HintSize="1265.6,3953.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SAP_ParametrosCarga" sap:VirtualizedContainerService.HintSize="1265.6,4107.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrMsg" />
       <Variable x:TypeArguments="x:Int32" Name="vIntCont" />
@@ -78,7 +78,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1224,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando carga de archivo CSV&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1224,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando carga de archivo CSV &quot;+in_StrFormato]" />
     <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'RadioButton No.'" sap:VirtualizedContainerService.HintSize="1224,107.2" sap2010:WorkflowViewState.IdRef="Check_1">
       <ui:Check.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ae986f92-34a3-4672-a1af-b0ccbd5e9621" InformativeScreenshot="8fcb5495b52bd5d5fae6566612adde8b" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Carga Frecuente Infotipos' /&gt;&lt;sap id='usr/radP_PERNO' /&gt;">
@@ -91,7 +91,7 @@
         </ui:Target>
       </ui:Check.Target>
     </ui:Check>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_StrFormato]" sap:VirtualizedContainerService.HintSize="1224,187.2" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_StrFormato]" sap:VirtualizedContainerService.HintSize="1224,340.8" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
         <Throw Exception="[new Exception(&quot;Revisar switch parametros&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </Switch.Default>

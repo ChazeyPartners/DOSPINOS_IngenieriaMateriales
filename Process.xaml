@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1108,3178.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1108,3311.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -65,7 +65,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1022.4,3033.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1022.4,3166.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrCSVFile" />
       <Variable x:TypeArguments="x:String" Name="vStrJob" />
@@ -80,23 +80,14 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="980.8,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="980.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Procesando archivo &quot;+in_TransactionItem.SpecificContent(&quot;ColID&quot;).ToString]" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ArreglarArchivos workflow" sap:VirtualizedContainerService.HintSize="980.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ArreglarArchivos.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="inStrFile">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString ,in_TransactionItem.SpecificContent(&quot;ColID&quot;).ToString)" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="inStrFormato">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;ColFormato&quot;).ToString" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_StrColumn">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrColumn" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BoolCargado">
-          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBoolCargado" />
-        </OutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="inStrFile">[Path.Combine(in_Config("RutaArchivosRecibidos").ToString ,in_TransactionItem.SpecificContent("ColID").ToString)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="inStrFormato">[in_TransactionItem.SpecificContent("ColFormato").ToString]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_StrColumn">[vStrColumn]</OutArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BoolCargado">[vBoolCargado]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <If Condition="[vBoolCargado]" sap:VirtualizedContainerService.HintSize="980.8,2615.2" sap2010:WorkflowViewState.IdRef="If_1">
@@ -110,19 +101,11 @@
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Ya se encuentra procesado este archivo en el historial&quot;]" />
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrID">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;ColID&quot;).ToString" />
-              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_TransactionItem.SpecificContent("ColID").ToString]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrJob" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">
-                <Literal x:TypeArguments="x:String">NO PROCESABLE</Literal>
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">
-                <Literal x:TypeArguments="x:String">Este archivo ya se encuentra en le historial de cargados</Literal>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">NO PROCESABLE</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">Este archivo ya se encuentra en le historial de cargados</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
@@ -271,15 +254,9 @@ NO CARGADO</InArgument>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_TablaSE16 workflow" sap:VirtualizedContainerService.HintSize="520,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_TablaSE16.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrFormato">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;ColFormato&quot;).ToString" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_StrTabla">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrTabla" />
-              </OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrFormato">[in_TransactionItem.SpecificContent("ColFormato").ToString]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_StrTabla">[vStrTabla]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="520,504" sap2010:WorkflowViewState.IdRef="TryCatch_3">
@@ -292,18 +269,10 @@ NO CARGADO</InArgument>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAP_ValidarColas workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Apps\SAP\SAP_ValidarColas.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_StrJob">
-                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrJob" />
-                    </OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_StrFecha">
-                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrFecha" />
-                    </OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_tabla">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="vStrTabla" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_StrJob">[vStrJob]</OutArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_StrFecha">[vStrFecha]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_tabla">[vStrTabla]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
@@ -338,19 +307,11 @@ NO CARGADO</InArgument>
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_StrID">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;ColID&quot;).ToString" />
-                        </InArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_TransactionItem.SpecificContent("ColID").ToString]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_StrJob" />
-                        <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">
-                          <Literal x:TypeArguments="x:String">FALLIDO</Literal>
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="exception.Message" />
-                        </InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">FALLIDO</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">[exception.Message]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha" />
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>

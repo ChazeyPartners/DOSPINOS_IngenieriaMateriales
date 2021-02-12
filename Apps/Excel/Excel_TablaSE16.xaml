@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1108,915.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1410.4,1080.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_TablaSE16_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -56,7 +56,6 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
@@ -64,9 +63,10 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Excel_TablaSE16" sap:VirtualizedContainerService.HintSize="548,810.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Excel_TablaSE16" sap:VirtualizedContainerService.HintSize="619.2,976" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="vBoolExiste" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbTabla" />
@@ -76,14 +76,17 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:PathExists DisplayName="Path Exists" Exists="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="506.4,90.4" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path.Combine(in_Config(&quot;RutaParametrizacion&quot;).ToString, in_Config(&quot;FileTablaSE16&quot;).ToString)]" PathType="File" />
-    <If Condition="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="506.4,209.6" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="577.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Buscando tabla coincidente&quot;]" />
+    <ui:PathExists DisplayName="Path Exists" Exists="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="577.6,90.4" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path.Combine(in_Config(&quot;RutaParametrizacion&quot;).ToString, in_Config(&quot;FileTablaSE16&quot;).ToString)]" PathType="File" />
+    <If Condition="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="577.6,237.6" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[vDtbTabla]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_Config(&quot;SheetTabla&quot;).ToString]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaParametrizacion&quot;).ToString, in_Config(&quot;FileTablaSE16&quot;).ToString)]" />
+      </If.Then>
       <If.Else>
         <Throw Exception="[new Exception(&quot;No se encontro archivo Tablas SE16&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </If.Else>
     </If>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[vDtbTabla]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="506.4,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_Config(&quot;SheetTabla&quot;).ToString]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaParametrizacion&quot;).ToString, in_Config(&quot;FileTablaSE16&quot;).ToString)]" />
-    <If Condition="[vDtbTabla.AsEnumerable.Where(Function(fila) fila(in_Config(&quot;ColFormato&quot;).ToString).ToString.Equals(in_StrFormato)).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="506.4,209.6" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[vDtbTabla.AsEnumerable.Where(Function(fila) fila(in_Config(&quot;ColFormato&quot;).ToString).ToString.Equals(in_StrFormato)).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="577.6,209.6" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
         <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
           <Assign.To>
@@ -98,5 +101,6 @@
         <Throw Exception="[new Exception(&quot;No se encontro tabla para el formato &quot;+in_StrFormato)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_2" />
       </If.Else>
     </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="577.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Tabla encontrada &quot;+out_StrTabla]" />
   </Sequence>
 </Activity>
