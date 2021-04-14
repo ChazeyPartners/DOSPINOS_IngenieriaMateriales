@@ -249,18 +249,18 @@
                       <Throw Exception="[new BusinessRuleException(&quot;LoginSuite: No se encontró botón Entrar&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_15" />
                     </If.Else>
                   </If>
-                  <ui:UiElementExists DisplayName="Elemento existente 'IMG  profile-small'" Exists="[vBoolDescoenctar]" sap:VirtualizedContainerService.HintSize="577.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_22">
+                  <ui:UiElementExists DisplayName="Elemento existente 'IMG  profile-small'" Exists="[vBoolDescoenctar]" sap:VirtualizedContainerService.HintSize="577.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_24">
                     <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="296d18fa-3c6e-4a78-a160-1ba285de65c2" InformativeScreenshot="6643771b5d323147c69061c864d06655" Selector="&lt;html app='chrome.exe' title='SESuite *' /&gt;&lt;webctrl aaname='OK' parentid='alertConfirm' tag='SPAN' /&gt;" TimeoutMS="10000">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a34ae0dc-1660-4277-83f1-f40847e490d7" InformativeScreenshot="6643771b5d323147c69061c864d06655" Selector="&lt;html app='chrome.exe' title='SESuite *' /&gt;&lt;webctrl aaname='OK' parentid='alertConfirm' tag='SPAN' /&gt;" TimeoutMS="2000">
                         <ui:Target.WaitForReady>
                           <InArgument x:TypeArguments="ui:WaitForReady" />
                         </ui:Target.WaitForReady>
                       </ui:Target>
                     </ui:UiElementExists.Target>
                   </ui:UiElementExists>
-                  <If Condition="[vBoolDescoenctar]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="577.6,256.8" sap2010:WorkflowViewState.IdRef="If_21">
+                  <If Condition="[vBoolDescoenctar]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="577.6,256.8" sap2010:WorkflowViewState.IdRef="If_24">
                     <If.Then>
-                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Clic 'BUTTON  disconnectCancel'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Clic 'BUTTON  disconnectCancel'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                         <ui:Click.CursorPosition>
                           <ui:CursorPosition Position="Center">
                             <ui:CursorPosition.OffsetX>
@@ -272,7 +272,7 @@
                           </ui:CursorPosition>
                         </ui:Click.CursorPosition>
                         <ui:Click.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d7ec2432-33da-437e-8c1f-516accd22286" InformativeScreenshot="697e06f6f6ef90b296ca80cfcdc1a54c" Selector="&lt;html app='chrome.exe' title='SESuite *' /&gt;&lt;webctrl aaname='OK' parentid='alertConfirm' tag='SPAN' /&gt;">
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7467509d-5a3a-4955-8733-61ee91146c4a" InformativeScreenshot="2239afaa3a3c16c31dc0841b81ba7d60" Selector="&lt;html app='chrome.exe' title='SESuite *' /&gt;&lt;webctrl aaname='OK' parentid='alertConfirm' tag='SPAN' /&gt;">
                             <ui:Target.TimeoutMS>
                               <InArgument x:TypeArguments="x:Int32" />
                             </ui:Target.TimeoutMS>

@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1108,3311.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,3396</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -65,7 +65,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1022.4,3166.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1027,3211" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrCSVFile" />
       <Variable x:TypeArguments="x:String" Name="vStrJob" />
@@ -79,9 +79,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="980.8,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="980.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Procesando archivo &quot;+in_TransactionItem.SpecificContent(&quot;ColID&quot;).ToString]" />
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ArreglarArchivos workflow" sap:VirtualizedContainerService.HintSize="980.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ArreglarArchivos.xaml">
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="985,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="985,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Procesando archivo &quot;+in_TransactionItem.SpecificContent(&quot;ColID&quot;).ToString]" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ArreglarArchivos workflow" sap:VirtualizedContainerService.HintSize="985,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ArreglarArchivos.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="inStrFile">[Path.Combine(in_Config("RutaArchivosRecibidos").ToString ,in_TransactionItem.SpecificContent("ColID").ToString)]</InArgument>
@@ -90,16 +90,16 @@
         <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BoolCargado">[vBoolCargado]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <If Condition="[vBoolCargado]" sap:VirtualizedContainerService.HintSize="980.8,2615.2" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[vBoolCargado]" sap:VirtualizedContainerService.HintSize="985,2669" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="375.2,339.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,335" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Ya se encuentra procesado este archivo en el historial&quot;]" />
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Ya se encuentra procesado este archivo en el historial&quot;]" />
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_TransactionItem.SpecificContent("ColID").ToString]</InArgument>
@@ -112,7 +112,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="561.6,2465.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence sap:VirtualizedContainerService.HintSize="564,2521" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="vStrTabla" />
           </Sequence.Variables>
@@ -121,7 +121,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_GenerateCSV workflow" sap:VirtualizedContainerService.HintSize="520,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_GenerateCSV.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_GenerateCSV workflow" sap:VirtualizedContainerService.HintSize="522,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_GenerateCSV.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrFile">[Path.Combine(in_Config("RutaArchivosRecibidos").ToString, in_TransactionItem.SpecificContent("ColID").ToString)]</InArgument>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
@@ -129,10 +129,10 @@
               <InArgument x:TypeArguments="x:String" x:Key="inStrFormato">[in_TransactionItem.SpecificContent("ColFormato").ToString]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="520,676" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="2" RetryInterval="00:00:05">
+          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="522,667" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="2" RetryInterval="00:00:05">
             <ui:RetryScope.ActivityBody>
               <ActivityAction>
-                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="478.4,500" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="480,493" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="ss:SecureString" Name="vSecPass" />
                     <Variable x:TypeArguments="x:String" Name="vStrUser" />
@@ -142,10 +142,10 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;SAPCredentials&quot;).ToString]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="436.8,22.4" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[vSecPass]" Username="[vStrUser]" />
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                  <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;SAPCredentials&quot;).ToString]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="438,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[vSecPass]" Username="[vStrUser]" />
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,339" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                     <TryCatch.Try>
-                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAPLogIn workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Apps\SAP\SAPLogIn.xaml">
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAPLogIn workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Apps\SAP\SAPLogIn.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="inConfig">[in_Config]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="inStrUser">[vStrUser]</InArgument>
@@ -154,7 +154,7 @@
                       </ui:InvokeWorkflowFile>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -165,14 +165,14 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence sap:VirtualizedContainerService.HintSize="241.6,177.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <Sequence sap:VirtualizedContainerService.HintSize="242,176" sap2010:WorkflowViewState.IdRef="Sequence_3">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:KillProcess Process="{x:Null}" ContinueOnError="True" DisplayName="Cancelar proceso" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="saplogon" />
-                            <Rethrow sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                            <ui:KillProcess Process="{x:Null}" ContinueOnError="True" DisplayName="Cancelar proceso" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="saplogon" />
+                            <Rethrow sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
                           </Sequence>
                         </ActivityAction>
                       </Catch>
@@ -185,14 +185,14 @@
               <ActivityFunc x:TypeArguments="x:Boolean" />
             </ui:RetryScope.Condition>
           </ui:RetryScope>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAP_ZHCM09 workflow" sap:VirtualizedContainerService.HintSize="520,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Apps\SAP\SAP_ZHCM09.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAP_ZHCM09 workflow" sap:VirtualizedContainerService.HintSize="522,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Apps\SAP\SAP_ZHCM09.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="520,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="522,339" sap2010:WorkflowViewState.IdRef="TryCatch_2">
             <TryCatch.Try>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAP_ParametrosCarga workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Apps\SAP\SAP_ParametrosCarga.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAP_ParametrosCarga workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Apps\SAP\SAP_ParametrosCarga.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_StrFormato">[in_TransactionItem.SpecificContent("ColFormato").ToString]</InArgument>
                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
@@ -201,7 +201,7 @@
               </ui:InvokeWorkflowFile>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -212,13 +212,13 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="375.2,268.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,266" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_TransactionItem.SpecificContent("ColID").ToString]</InArgument>
@@ -229,20 +229,20 @@ NO CARGADO</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha" />
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <Rethrow sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+                    <Rethrow sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
                   </Sequence>
                 </ActivityAction>
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_AgregarConsolidado workflow" sap:VirtualizedContainerService.HintSize="520,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_AgregarConsolidado.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_AgregarConsolidado workflow" sap:VirtualizedContainerService.HintSize="522,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_AgregarConsolidado.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrArchivo">[in_TransactionItem.SpecificContent("ColID").ToString]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrColum">[vStrColumn]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="520,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="522,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_TransactionItem.SpecificContent("ColID").ToString]</InArgument>
@@ -252,22 +252,22 @@ NO CARGADO</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha">[vStrFecha]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_TablaSE16 workflow" sap:VirtualizedContainerService.HintSize="520,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_TablaSE16.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_TablaSE16 workflow" sap:VirtualizedContainerService.HintSize="522,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_TablaSE16.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_StrFormato">[in_TransactionItem.SpecificContent("ColFormato").ToString]</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="out_StrTabla">[vStrTabla]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="520,504" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="522,583" sap2010:WorkflowViewState.IdRef="TryCatch_3">
             <TryCatch.Try>
-              <Sequence sap:VirtualizedContainerService.HintSize="375.2,360" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence sap:VirtualizedContainerService.HintSize="376,356" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAP_ValidarColas workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Apps\SAP\SAP_ValidarColas.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAP_ValidarColas workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Apps\SAP\SAP_ValidarColas.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                     <OutArgument x:TypeArguments="x:String" x:Key="out_StrJob">[vStrJob]</OutArgument>
@@ -275,7 +275,7 @@ NO CARGADO</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_tabla">[vStrTabla]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_TransactionItem.SpecificContent("ColID").ToString]</InArgument>
@@ -288,10 +288,10 @@ NO CARGADO</InArgument>
               </Sequence>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,339.2" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -299,13 +299,13 @@ NO CARGADO</InArgument>
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="375.2,268.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,266" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_TransactionItem.SpecificContent("ColID").ToString]</InArgument>
@@ -315,7 +315,7 @@ NO CARGADO</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha" />
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <Rethrow sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
+                    <Rethrow sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
                   </Sequence>
                 </ActivityAction>
               </Catch>
