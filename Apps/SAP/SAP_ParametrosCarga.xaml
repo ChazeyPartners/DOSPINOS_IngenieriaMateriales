@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1410.4,4212</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,3901</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SAP_ParametrosCarga_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -65,10 +65,9 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SAP_ParametrosCarga" sap:VirtualizedContainerService.HintSize="1265.6,4107.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SAP_ParametrosCarga" sap:VirtualizedContainerService.HintSize="1266,3796" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrMsg" />
       <Variable x:TypeArguments="x:Int32" Name="vIntCont" />
@@ -78,8 +77,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1224,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando carga de archivo CSV &quot;+in_StrFormato]" />
-    <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'RadioButton No.'" sap:VirtualizedContainerService.HintSize="1224,107.2" sap2010:WorkflowViewState.IdRef="Check_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1224,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando carga de archivo CSV &quot;+in_StrFormato]" />
+    <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'RadioButton No.'" sap:VirtualizedContainerService.HintSize="1224,106" sap2010:WorkflowViewState.IdRef="Check_1">
       <ui:Check.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ae986f92-34a3-4672-a1af-b0ccbd5e9621" InformativeScreenshot="8fcb5495b52bd5d5fae6566612adde8b" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Carga Frecuente Infotipos' /&gt;&lt;sap id='usr/radP_PERNO' /&gt;">
           <ui:Target.TimeoutMS>
@@ -91,11 +90,11 @@
         </ui:Target>
       </ui:Check.Target>
     </ui:Check>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_StrFormato]" sap:VirtualizedContainerService.HintSize="1224,340.8" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_StrFormato]" sap:VirtualizedContainerService.HintSize="1224,182" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
         <Throw Exception="[new Exception(&quot;Revisar switch parametros&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </Switch.Default>
-      <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="Caso Devengos" Action="Check" DisplayName="Check 'RadioButton Devengos/De...'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Check_2">
+      <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="Caso Devengos" Action="Check" DisplayName="Check 'RadioButton Devengos/De...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_2">
         <ui:Check.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5f444ddb-58a2-45c0-9108-a5fbefd7b47e" InformativeScreenshot="686224eab949f3184400d98cd767c5ce" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Carga Frecuente Infotipos' /&gt;&lt;sap id='usr/radP_0014' /&gt;">
             <ui:Target.TimeoutMS>
@@ -107,7 +106,7 @@
           </ui:Target>
         </ui:Check.Target>
       </ui:Check>
-      <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="Caso Horas Extras" Action="Check" DisplayName="Check 'RadioButton Devengos/De...'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Check_3">
+      <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="Caso Horas Extras" Action="Check" DisplayName="Check 'RadioButton Devengos/De...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_3">
         <ui:Check.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5f444ddb-58a2-45c0-9108-a5fbefd7b47e" InformativeScreenshot="e3e1cdcb203e5af542bf4b2d0c4c4e64" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Carga Frecuente Infotipos' /&gt;&lt;sap id='usr/radP_2010' /&gt;">
             <ui:Target.TimeoutMS>
@@ -119,7 +118,7 @@
           </ui:Target>
         </ui:Check.Target>
       </ui:Check>
-      <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="Caso Pago Complementario" Action="Check" DisplayName="Check 'RadioButton Devengos/De...'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Check_4">
+      <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="Caso Pago Complementario" Action="Check" DisplayName="Check 'RadioButton Devengos/De...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_4">
         <ui:Check.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5f444ddb-58a2-45c0-9108-a5fbefd7b47e" InformativeScreenshot="a533077d914c94530dd0f8e049c42498" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Carga Frecuente Infotipos' /&gt;&lt;sap id='usr/radP_0015' /&gt;">
             <ui:Target.TimeoutMS>
@@ -132,7 +131,7 @@
         </ui:Check.Target>
       </ui:Check>
     </Switch>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'TextField Indicador'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1224,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_Config(&quot;SeparadorListas&quot;).ToString]">
+    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'TextField Indicador'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1224,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_Config(&quot;SeparadorListas&quot;).ToString]">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="896a525e-50d7-466c-a109-124dff725887" InformativeScreenshot="1a3f2e2b3403929bcd88e071bbaac3ad" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Carga Frecuente Infotipos' /&gt;&lt;sap id='usr/txtP_SEP' /&gt;">
           <ui:Target.TimeoutMS>
@@ -144,7 +143,7 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'TextField Indicador'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1224,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="1">
+    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'TextField Indicador'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1224,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="1">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6004124f-1013-41d6-a646-81bf5f353d37" InformativeScreenshot="e8581e8a53a56556d153181171970f45" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Carga Frecuente Infotipos' /&gt;&lt;sap id='usr/txtP_MODO' /&gt;">
           <ui:Target.TimeoutMS>
@@ -156,7 +155,7 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'CTextField Fichero'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1224,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[Path.Combine( in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FolderArchivos&quot;).ToString, in_StrFile.Replace(&quot;.xlsx&quot;,&quot;.csv&quot;))]">
+    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'CTextField Fichero'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1224,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[Path.Combine( in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FolderArchivos&quot;).ToString, in_StrFile.Replace(&quot;.xlsx&quot;,&quot;.csv&quot;))]">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="060c4b10-14ff-417f-a072-fbfcd7b79a48" InformativeScreenshot="09ee9ae5696e1940dd3e6c029ad77dfc" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Carga Frecuente Infotipos' /&gt;&lt;sap id='usr/ctxtP_FILE' /&gt;">
           <ui:Target.TimeoutMS>
@@ -168,7 +167,7 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button Continuar'" sap:VirtualizedContainerService.HintSize="1224,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button Continuar'" sap:VirtualizedContainerService.HintSize="1224,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -190,7 +189,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" sap:VirtualizedContainerService.HintSize="1224,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'saplogon.exe Seguridad'" sap:VirtualizedContainerService.HintSize="1224,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -202,7 +201,7 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="942fc060-d166-4ebd-9ece-c37234bb5b51" InformativeScreenshot="1f3e10dd82559a9e3ab90a8447e1e9cd" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Seguridad SAP GUI' idx='*' /&gt;&#xA;&lt;wnd ctrlid='1018' title='&amp;amp;Allow' /&gt;" TimeoutMS="3000">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="942fc060-d166-4ebd-9ece-c37234bb5b51" InformativeScreenshot="ee0e9e190d6835a86d89bd3c353fc767" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Seguridad SAP GUI' idx='*' /&gt;&lt;wnd ctrlid='1018' aaname='Permitir' /&gt;" TimeoutMS="3000">
           <ui:Target.WaitForReady>
             <InArgument x:TypeArguments="ui:WaitForReady" />
           </ui:Target.WaitForReady>
@@ -217,26 +216,26 @@
         <InArgument x:TypeArguments="x:Int32">0</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="1224,1188.8" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+    <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="1224,1046" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
       <ui:InterruptibleDoWhile.Body>
-        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="558.4,1021.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="564,881" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="516.8,766.4" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="522,627" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
             <ui:RetryScope.ActivityBody>
               <ActivityAction>
-                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="475.2,590.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="480,453" sap2010:WorkflowViewState.IdRef="Sequence_7">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="433.6,497.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,361" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                     <TryCatch.Try>
-                      <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="text" DisplayName="Get Attribute 'Statusbar Job'" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
+                      <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="text" DisplayName="Get Attribute 'Statusbar Job'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
                         <ui:GetAttribute.Result>
                           <OutArgument x:TypeArguments="x:String">[vStrMsg]</OutArgument>
                         </ui:GetAttribute.Result>
@@ -253,10 +252,10 @@
                       </ui:GetAttribute>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,332.8" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
@@ -264,13 +263,13 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence sap:VirtualizedContainerService.HintSize="375.2,262.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_6">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Button  No'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'Button  No'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                               <ui:Click.CursorPosition>
                                 <ui:CursorPosition Position="Center">
                                   <ui:CursorPosition.OffsetX>
@@ -289,7 +288,7 @@
                                 </ui:Target>
                               </ui:Click.Target>
                             </ui:Click>
-                            <Rethrow sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                            <Rethrow sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
                           </Sequence>
                         </ActivityAction>
                       </Catch>
@@ -302,8 +301,8 @@
               <ActivityFunc x:TypeArguments="x:Boolean" />
             </ui:RetryScope.Condition>
           </ui:RetryScope>
-          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="516.8,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
-          <Assign sap:VirtualizedContainerService.HintSize="516.8,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="522,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          <Assign sap:VirtualizedContainerService.HintSize="522,60" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[vIntCont]</OutArgument>
             </Assign.To>
