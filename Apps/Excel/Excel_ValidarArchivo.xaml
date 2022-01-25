@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1144,2438</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1144,2440</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_ValidarArchivo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -69,7 +69,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Excel_ValidarArchivo" sap:VirtualizedContainerService.HintSize="943,2333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Excel_ValidarArchivo" sap:VirtualizedContainerService.HintSize="943,2335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="vWorkbook" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbPorCargar" />
@@ -167,7 +167,7 @@ CDbl(If( String.IsNullOrEmpty(fila(vStrCol2).ToString.Trim),"0",fila(vStrCol2).T
           <ui:OutputDataTable DataTable="[vDtbFaltantes]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="438,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[vStrTabla]" />
           <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,379" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <TryCatch.Try>
-              <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Se encontro inconsistencias entre lo que se cargo para el ID &quot;+in_StrArchivo.Split({&quot;ID&quot;}, StringSplitOptions.None).Last.Replace(&quot;.xlsx&quot;,&quot;&quot;) _ &#xA;+ vbNewLine + &quot;Los registros faltantes son los siguientes:&quot;+vbNewLine+ vStrTabla]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,147" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject=":: El robot enocntro inconsistencia entre lo cargado y lo que se tenia que cargar::" To="[in_Config(&quot;CorreoResultados&quot;).ToString]">
+              <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Se encontró inconsistencias entre lo que se cargo para el ID &quot;+in_StrArchivo.Split({&quot;ID&quot;}, StringSplitOptions.None).Last.Replace(&quot;.xlsx&quot;,&quot;&quot;) _ &#xD;&#xA;+ vbNewLine + &quot;Los registros faltantes son los siguientes:&quot;+vbNewLine+ vStrTabla]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,147" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject=":: El robot encontró inconsistencia entre lo cargado y lo que se tenia que cargar::" To="[in_Config(&quot;CorreoResultados&quot;).ToString]">
                 <ui:SendOutlookMail.Files>
                   <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                 </ui:SendOutlookMail.Files>
@@ -223,6 +223,6 @@ CDbl(If( String.IsNullOrEmpty(fila(vStrCol2).ToString.Trim),"0",fila(vStrCol2).T
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="901,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Finalizada validación&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="901,93" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Finalizada validación&quot;]" />
   </Sequence>
 </Activity>
