@@ -1,8 +1,9 @@
 {
-  "name": "Incidencias de Nomina",
-  "description": "",
+  "name": "Ingenierias_Y_Materiales",
+  "description": "Datos maestros de Ingenierias, recetas y materiales",
   "main": "Main.xaml",
   "dependencies": {
+    "BalaReva.Excel.Activities": "[2021.0.0]",
     "DataManipulations.Activities": "[1.0.6]",
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "[2.9.5]",
@@ -11,19 +12,25 @@
     "UiPath.UIAutomation.Activities": "[20.10.8]"
   },
   "webServices": [],
+  "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "20.4.1.0",
   "projectVersion": "1.0.32",
   "runtimeOptions": {
     "autoDispose": false,
+    "netFrameworkLazyLoading": false,
     "isPausable": true,
+    "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
     "excludedLoggedData": [
       "Private:*",
       "*password*"
     ],
-    "executionType": "Workflow"
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -32,7 +39,11 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "fileInfoCollection": []
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false
   },
   "arguments": {
     "input": [
@@ -45,5 +56,17 @@
     ],
     "output": []
   },
-  "expressionLanguage": "VisualBasic"
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "3d8b094d-2b6f-4f0b-88ec-425d275cbaba",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
 }
