@@ -1,14 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SAP_MM02_IngresarDatos" this:SAP_MM02_IngresarDatos.in_Material="15004030" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ucas="clr-namespace:UiPath.Core.Activities.SAP;assembly=UiPath.UiAutomation.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SAP_MM02_IngresarDatos" this:SAP_MM02_IngresarDatos.in_Material="15004030" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ucas="clr-namespace:UiPath.Core.Activities.SAP;assembly=UiPath.UiAutomation.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Material" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>606,3952</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>606,4786</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SAP_MM02_IngresarDatos_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="27">
+    <scg:List x:TypeArguments="x:String" Capacity="29">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -36,10 +36,12 @@
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>UiPath.Core.Activities.SAP</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -69,10 +71,11 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SAP_MM02_IngresarDatos" sap:VirtualizedContainerService.HintSize="526,3887" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SAP_MM02_IngresarDatos" sap:VirtualizedContainerService.HintSize="526,4721" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="vBoolGeneral" />
       <Variable x:TypeArguments="x:String" Name="vStrStatusBar" />
+      <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -180,7 +183,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:UiElementExists>
-    <If Condition="[vBoolGeneral]" DisplayName="Check ventana seleccion vistas" sap:VirtualizedContainerService.HintSize="484,2696" sap2010:WorkflowViewState.IdRef="If_12">
+    <If Condition="[vBoolGeneral]" DisplayName="Check ventana seleccion vistas" sap:VirtualizedContainerService.HintSize="484,3530" sap2010:WorkflowViewState.IdRef="If_12">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -188,13 +191,52 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="242,2509" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="242,3343" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Int32" Name="vIntIndexVista" />
+          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'Selecci n Dialog'" sap:VirtualizedContainerService.HintSize="434,344" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="141c23f3e7e58e7ac673b9775f9fea12" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;">
+              <ui:WindowScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data 'TableControl  SAPLMGMMT...'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="0" SimulateClick="True">
+                      <ui:ExtractData.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="315f54ca-ac0c-4642-a942-307d849efccd" InformativeScreenshot="431e796b97e0bea7a519455c3a9b3896" Selector="&lt;sap id='usr/tblSAPLMGMMTC_VIEW' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:ExtractData.Target>
+                    </ui:ExtractData>
+                  </Sequence>
+                </ActivityAction>
+              </ui:WindowScope.Body>
+            </ui:WindowScope>
+          </Sequence>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;[SAP_MM02_IngresarDatos] Sap requiere seleccion de vistas, se seleccionaran...&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -231,12 +273,20 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:Click>
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Datos base 1" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnIndex="[0]" LookupValue="Datos base 1" RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
           <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Datos Base 1'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="c44a26fedea7de7afd6e69ca6facf963" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap colTooltip='Denom.pantalla' id='usr/tblSAPLMGMMTC_VIEW' text='Datos base 1' /&gt;&lt;nav up='1' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='0' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="c44a26fedea7de7afd6e69ca6facf963" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap colTooltip='Denom.pantalla' id='usr/tblSAPLMGMMTC_VIEW' text='Datos base 1' /&gt;&lt;nav up='1' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -272,7 +322,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="cc1700d770f030f8eef001718fb100ff" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap colTooltip='Denom.pantalla' id='usr/tblSAPLMGMMTC_VIEW' text='Datos base 1' /&gt;&lt;nav up='1' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='0' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="cc1700d770f030f8eef001718fb100ff" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap colTooltip='Denom.pantalla' id='usr/tblSAPLMGMMTC_VIEW' text='Datos base 1' /&gt;&lt;nav up='1' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -284,12 +334,20 @@
               </ui:Click>
             </If.Else>
           </If>
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Datos base 2" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnIndex="[0]" LookupValue="Datos base 2" RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
           <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Datos Base 2'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="efb5165cbb99ad4ae54706d464d275c6" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap colTooltip='Denom.pantalla' id='usr/tblSAPLMGMMTC_VIEW' text='Datos base 2' /&gt;&lt;nav up='1' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='1' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="efb5165cbb99ad4ae54706d464d275c6" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap colTooltip='Denom.pantalla' id='usr/tblSAPLMGMMTC_VIEW' text='Datos base 2' /&gt;&lt;nav up='1' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -325,7 +383,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="cc1700d770f030f8eef001718fb100ff" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap colTooltip='Denom.pantalla' id='usr/tblSAPLMGMMTC_VIEW' text='Datos base 2' /&gt;&lt;nav up='1' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='1' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="cc1700d770f030f8eef001718fb100ff" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap colTooltip='Denom.pantalla' id='usr/tblSAPLMGMMTC_VIEW' text='Datos base 2' /&gt;&lt;nav up='1' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -337,12 +395,20 @@
               </ui:Click>
             </If.Else>
           </If>
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Ventas: Datos org.ventas 1" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_3" LookupColumnIndex="[0]" LookupValue="Ventas: Datos org.ventas 1" RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
           <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Ventas Org 1'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="b8fc6f90c4e3d74e81787480f84d792d" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='3' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="b8fc6f90c4e3d74e81787480f84d792d" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -378,7 +444,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="5e825f1d13bc4a26de8fe3417412bf4b" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='3' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="5e825f1d13bc4a26de8fe3417412bf4b" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -390,12 +456,20 @@
               </ui:Click>
             </If.Else>
           </If>
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Ventas: Datos org.ventas 2" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_4" LookupColumnIndex="[0]" LookupValue="Ventas: Datos org.ventas 2" RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
           <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Ventas Org 2'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_4">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="4e3ae76d651dd1417a35cff32bc16863" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='4' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="4e3ae76d651dd1417a35cff32bc16863" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -431,7 +505,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="35a3715a5733779fc043c6028ac067a7" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='4' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="35a3715a5733779fc043c6028ac067a7" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -443,12 +517,20 @@
               </ui:Click>
             </If.Else>
           </If>
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Ventas: Datos centro/gral." sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_5" LookupColumnIndex="[0]" LookupValue="Ventas: Datos centro/gral." RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
           <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Ventas Datos centro general'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_5">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="e8524b1dccc3aa9d2f532e8147d876ec" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='5' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="e8524b1dccc3aa9d2f532e8147d876ec" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -484,7 +566,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="50b6e7ef02b71e66ba02136336c149f1" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='5' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="191a6fd5-1ba5-4936-a062-0b545d41706d" InformativeScreenshot="50b6e7ef02b71e66ba02136336c149f1" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -496,12 +578,20 @@
               </ui:Click>
             </If.Else>
           </If>
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Compras" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_6" LookupColumnIndex="[0]" LookupValue="Compras" RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
           <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Compras'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_6">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="f080218303dc8b6aed428c40971868d5" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='8' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="f080218303dc8b6aed428c40971868d5" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -537,7 +627,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a8332825-3d73-43c8-8d1f-e2e22e2cecf4" InformativeScreenshot="751abe378b496cf94e381942af255f84" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='8' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a8332825-3d73-43c8-8d1f-e2e22e2cecf4" InformativeScreenshot="751abe378b496cf94e381942af255f84" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -549,12 +639,20 @@
               </ui:Click>
             </If.Else>
           </If>
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Planif.necesidades 1" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_7" LookupColumnIndex="[0]" LookupValue="Planif.necesidades 1" RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
           <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Plan Nec 1'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_7">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="ace2379002ab1e9369de68f48265398b" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='11' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="ace2379002ab1e9369de68f48265398b" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -590,7 +688,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6b3aa97-5f2e-4d5c-8c21-90b8fe154097" InformativeScreenshot="e72d2fbe8ccdaead38d11e8b1b27aeec" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='11' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6b3aa97-5f2e-4d5c-8c21-90b8fe154097" InformativeScreenshot="e72d2fbe8ccdaead38d11e8b1b27aeec" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -602,12 +700,20 @@
               </ui:Click>
             </If.Else>
           </If>
-          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Plan Nec 2'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_8">
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Planif.necesidades 2" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_8" LookupColumnIndex="[0]" LookupValue="Planif.necesidades 2" RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
+          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Plan Nec 2'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_12">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="b9ce528fe1a107296a8782b57f793db0" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='12' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="ace2379002ab1e9369de68f48265398b" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -623,7 +729,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:GetAttribute>
-          <If Condition="[vBoolGeneral]" DisplayName="Check cheked" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_8">
+          <If Condition="[vBoolGeneral]" DisplayName="Check cheked" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_15">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -631,7 +737,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Else>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Planif 2'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Planif 1'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -643,7 +749,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="08aafb52-7b26-41c3-b5b5-503cc2b4106d" InformativeScreenshot="032685c2c7e996ffe433b80d4fbbad4d" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='12' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6b3aa97-5f2e-4d5c-8c21-90b8fe154097" InformativeScreenshot="e72d2fbe8ccdaead38d11e8b1b27aeec" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -655,12 +761,20 @@
               </ui:Click>
             </If.Else>
           </If>
-          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Plan Nec 3'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_9">
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Planif.necesidades 3" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_9" LookupColumnIndex="[0]" LookupValue="Planif.necesidades 3" RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
+          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Plan Nec 3'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_13">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="ad8a4f8462018745b4b6c1ec8e1caf78" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='13' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="ace2379002ab1e9369de68f48265398b" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -676,7 +790,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:GetAttribute>
-          <If Condition="[vBoolGeneral]" DisplayName="Check cheked" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_9">
+          <If Condition="[vBoolGeneral]" DisplayName="Check cheked" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -684,7 +798,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Else>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Planif 3'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Planif 1'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_17" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -696,7 +810,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c8e628fc-e9e8-4268-a069-d49e9140d317" InformativeScreenshot="6b5763a8cf3f900a456920cac337dc54" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='13' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6b3aa97-5f2e-4d5c-8c21-90b8fe154097" InformativeScreenshot="e72d2fbe8ccdaead38d11e8b1b27aeec" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -708,12 +822,20 @@
               </ui:Click>
             </If.Else>
           </If>
-          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Plan Nec 4'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_10">
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="Lookup Planif.necesidades 4" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LookupDataTable_10" LookupColumnIndex="[0]" LookupValue="Planif.necesidades 4" RowIndex="[vIntIndexVista]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LookupDataTable>
+          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Plan Nec 4'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_14">
             <ui:GetAttribute.Result>
               <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
             </ui:GetAttribute.Result>
             <ui:GetAttribute.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="2535ba77b20cab78a2e8a2f2efba538d" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='14' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="ace2379002ab1e9369de68f48265398b" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -729,7 +851,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:GetAttribute>
-          <If Condition="[vBoolGeneral]" DisplayName="Check cheked" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_10">
+          <If Condition="[vBoolGeneral]" DisplayName="Check cheked" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_17">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -737,7 +859,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Else>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Planif 4'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Planif 1'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_18" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -749,7 +871,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4cd1f3ee-b261-4985-9010-6064a768c7d1" InformativeScreenshot="cc87abb3cc71e47d549aa6c474668d68" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='14' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6b3aa97-5f2e-4d5c-8c21-90b8fe154097" InformativeScreenshot="e72d2fbe8ccdaead38d11e8b1b27aeec" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='&quot;+vIntIndexVista.ToString+&quot;' /&gt;&quot;]">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -761,93 +883,6 @@
               </ui:Click>
             </If.Else>
           </If>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="checked" DisplayName="Get Attribute 'Data general'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetAttribute_11">
-                  <ui:GetAttribute.Result>
-                    <OutArgument x:TypeArguments="x:Boolean">[vBoolGeneral]</OutArgument>
-                  </ui:GetAttribute.Result>
-                  <ui:GetAttribute.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90eff615-292f-4f33-91b2-a3a159f55071" InformativeScreenshot="01e8c3b490952c746fdb6bf2bbadf072" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='16' /&gt;">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:GetAttribute.Target>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:GetAttribute>
-              </Sequence>
-            </ui:CommentOut.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:CommentOut>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="526,143" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <If Condition="[vBoolGeneral]" DisplayName="Check cheked" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_11">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Else>
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Data general'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
-                      <ui:Click.CursorPosition>
-                        <ui:CursorPosition Position="Center">
-                          <ui:CursorPosition.OffsetX>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:CursorPosition.OffsetX>
-                          <ui:CursorPosition.OffsetY>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:CursorPosition.OffsetY>
-                        </ui:CursorPosition>
-                      </ui:Click.CursorPosition>
-                      <ui:Click.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="796becee-2f33-4a90-be1b-18c3eccf746f" InformativeScreenshot="4ea0904de175c53a2a4da61ef6140e65" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Selección de vistas' idx='*' /&gt;&lt;sap id='usr/tblSAPLMGMMTC_VIEW' tableRow='16' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:Click.Target>
-                    </ui:Click>
-                  </If.Else>
-                </If>
-              </Sequence>
-            </ui:CommentOut.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:CommentOut>
           <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button Parametrización'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">

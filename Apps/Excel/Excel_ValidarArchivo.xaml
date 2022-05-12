@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1144,2440</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>606,952</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_ValidarArchivo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -69,7 +69,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Excel_ValidarArchivo" sap:VirtualizedContainerService.HintSize="943,2335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Excel_ValidarArchivo" sap:VirtualizedContainerService.HintSize="376,887" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="vWorkbook" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbPorCargar" />
@@ -83,8 +83,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="901,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Validando registros&quot;]" />
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="901,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString,in_Config(&quot;FolderArchivos&quot;).ToString, in_StrArchivo.Replace(&quot;.xlsx&quot;,&quot;SAP.xlsx&quot;))]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Validando registros&quot;]" />
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString,in_Config(&quot;FolderArchivos&quot;).ToString, in_StrArchivo.Replace(&quot;.xlsx&quot;,&quot;SAP.xlsx&quot;))]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -100,8 +100,14 @@
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <Assign sap:VirtualizedContainerService.HintSize="901,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[vDtbCargado]</OutArgument>
       </Assign.To>
@@ -109,7 +115,7 @@
         <InArgument x:TypeArguments="sd:DataTable">[vDtbCargado.AsEnumerable.Where(Function(fila) not String.IsNullOrEmpty(fila(in_Config("ColPERNR").ToString).ToString)).CopyToDataTable]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="901,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString, in_StrArchivo)]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Workbook="[vWorkbook]" WorkbookPath="[Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString, in_StrArchivo)]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -125,8 +131,14 @@
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <Assign sap:VirtualizedContainerService.HintSize="901,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[vStrCol1]</OutArgument>
       </Assign.To>
@@ -134,7 +146,7 @@
         <InArgument x:TypeArguments="x:String">[in_Config("ColVCol1").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="901,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[vStrCol2]</OutArgument>
       </Assign.To>
@@ -142,19 +154,26 @@
         <InArgument x:TypeArguments="x:String">[in_Config("ColVCol2").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[vDtbPorCargar.AsEnumerable.Where(Function(fila) vDtbCargado.AsEnumerable.Where(Function(filac) filac(in_Config(&quot;ColPERNR&quot;).ToString).ToString.Trim.ToLower.Equals(  fila(in_Config(&quot;ColPERNR&quot;).ToString).ToString.Trim.ToLower) And _ &#xD;&#xA;CDbl(If( String.IsNullOrEmpty(filac(vStrCol1).ToString.Trim),&quot;0&quot;, filac(vStrCol1).ToString.Trim.Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot;,&quot;,&quot;.&quot;)) ) = _&#xD;&#xA;CDbl(If( String.IsNullOrEmpty(fila(vStrCol2).ToString.Trim),&quot;0&quot;,fila(vStrCol2).ToString.Trim.Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot;,&quot;,&quot;.&quot;)) ) ).Count = 0).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="901,1077" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[vDtbPorCargar.AsEnumerable.Where(Function(fila) vDtbCargado.AsEnumerable.Where(Function(filac) filac(in_Config(&quot;ColPERNR&quot;).ToString).ToString.Trim.ToLower.Equals(  fila(in_Config(&quot;ColPERNR&quot;).ToString).ToString.Trim.ToLower) And _ &#xA;CDbl(If( String.IsNullOrEmpty(filac(vStrCol1).ToString.Trim),&quot;0&quot;, filac(vStrCol1).ToString.Trim.Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot;,&quot;,&quot;.&quot;)) ) = _&#xA;CDbl(If( String.IsNullOrEmpty(fila(vStrCol2).ToString.Trim),&quot;0&quot;,fila(vStrCol2).ToString.Trim.Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot;,&quot;,&quot;.&quot;)) ) ).Count = 0).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="480,923" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="vStrTabla" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;INCONCISTENCIAS&quot;]" />
-          <Assign sap:VirtualizedContainerService.HintSize="438,64" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;INCONCISTENCIAS&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:DataTable">[vDtbFaltantes]</OutArgument>
             </Assign.To>
@@ -164,17 +183,23 @@ CDbl(If( String.IsNullOrEmpty(filac(vStrCol1).ToString.Trim),"0", filac(vStrCol1
 CDbl(If( String.IsNullOrEmpty(fila(vStrCol2).ToString.Trim),"0",fila(vStrCol2).ToString.Trim.Replace(".","").Replace(",",".")) ) ).Count = 0).CopyToDataTable]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:OutputDataTable DataTable="[vDtbFaltantes]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="438,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[vStrTabla]" />
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,379" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <ui:OutputDataTable DataTable="[vDtbFaltantes]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[vStrTabla]" />
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Se encontró inconsistencias entre lo que se cargo para el ID &quot;+in_StrArchivo.Split({&quot;ID&quot;}, StringSplitOptions.None).Last.Replace(&quot;.xlsx&quot;,&quot;&quot;) _ &#xD;&#xA;+ vbNewLine + &quot;Los registros faltantes son los siguientes:&quot;+vbNewLine+ vStrTabla]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,147" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject=":: El robot encontró inconsistencia entre lo cargado y lo que se tenia que cargar::" To="[in_Config(&quot;CorreoResultados&quot;).ToString]">
+              <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Se encontró inconsistencias entre lo que se cargo para el ID &quot;+in_StrArchivo.Split({&quot;ID&quot;}, StringSplitOptions.None).Last.Replace(&quot;.xlsx&quot;,&quot;&quot;) _ &#xA;+ vbNewLine + &quot;Los registros faltantes son los siguientes:&quot;+vbNewLine+ vStrTabla]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject=":: El robot encontró inconsistencia entre lo cargado y lo que se tenia que cargar::" To="[in_Config(&quot;CorreoResultados&quot;).ToString]">
                 <ui:SendOutlookMail.Files>
                   <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                 </ui:SendOutlookMail.Files>
               </ui:SendOutlookMail>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -185,44 +210,85 @@ CDbl(If( String.IsNullOrEmpty(fila(vStrCol2).ToString.Trim),"0",fila(vStrCol2).T
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;No se pudo enviar correo con discrepancias&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;No se pudo enviar correo con discrepancias&quot;]" />
                 </ActivityAction>
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="438,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_StrArchivo]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrJob" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">INCONCISTENCIAS</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">["Se encontraron "+vDtbFaltantes.rows.Count.ToString+ " registros diferentes"]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">
+                <Literal x:TypeArguments="x:String">INCONCISTENCIAS</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Se encontraron &quot;+vDtbFaltantes.rows.Count.ToString+ &quot; registros diferentes&quot;" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrFechaInicio">
+                <Literal x:TypeArguments="x:String">10:30</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrfechaFin">
+                <Literal x:TypeArguments="x:String">10:46</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrTipoExcepcion">
+                <Literal x:TypeArguments="x:String">Nada perrito</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Archivo">
+                <Literal x:TypeArguments="x:String">C:\Users\ex_sjimenez\Documents\Ingenierias_Y_Materiales\Archivos Generados\2022\04\19\Queues\Queue.xlsx</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrMaterial" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrProdBase" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrTipoActualizacion">
+                <Literal x:TypeArguments="x:String">ExtMatProdBase</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_IDQueue">
+                <Literal x:TypeArguments="x:String">DosPinos_Item_31</Literal>
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,338" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;VALIDADO&quot;]" />
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;VALIDADO&quot;]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Excel_ActualizarEstado workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ActualizarEstado.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrID">[in_StrArchivo]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrJob" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">VALIDADO</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrFecha" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrEstado">
+                <Literal x:TypeArguments="x:String">VALIDADO</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrObservaciones">
+                <Literal x:TypeArguments="x:String">all rigth</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrFechaInicio">
+                <Literal x:TypeArguments="x:String">10:30</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrfechaFin">
+                <Literal x:TypeArguments="x:String">10:46</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrTipoExcepcion">
+                <Literal x:TypeArguments="x:String">Nada perrito</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Archivo">
+                <Literal x:TypeArguments="x:String">C:\Users\ex_sjimenez\Documents\Ingenierias_Y_Materiales\Archivos Generados\2022\04\19\Queues\Queue.xlsx</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrMaterial" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrProdBase" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrTipoActualizacion">
+                <Literal x:TypeArguments="x:String">ExtMatProdBase</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_IDQueue">
+                <Literal x:TypeArguments="x:String">DosPinos_Item_31</Literal>
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="901,93" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Finalizada validación&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Finalizada validación&quot;]" />
   </Sequence>
 </Activity>
