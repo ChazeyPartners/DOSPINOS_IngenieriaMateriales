@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1567,4699</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1567,4608</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SeSuite_Descarga_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -82,7 +82,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="SeSuite_Descarga" sap:VirtualizedContainerService.HintSize="1577,4634" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SeSuite_Descarga" sap:VirtualizedContainerService.HintSize="1577,4543" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="vSecPass" />
       <Variable x:TypeArguments="x:String" Name="vStrUser" />
@@ -102,14 +102,6 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1535,51" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;[SeSuite_DescargaDinamica] Inicio.&quot;]" />
-    <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="1535,51" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="chrome">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:KillProcess>
     <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1535,51" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>

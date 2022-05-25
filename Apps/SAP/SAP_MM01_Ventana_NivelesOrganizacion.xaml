@@ -1,23 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SAP_MM01_Ventana_NivelesOrganizacion" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SAP_MM01_Ventana_NivelesOrganizacion" this:SAP_MM01_Ventana_NivelesOrganizacion.in_Centro="1101" this:SAP_MM01_Ventana_NivelesOrganizacion.in_Almacen="4100" this:SAP_MM01_Ventana_NivelesOrganizacion.in_OrgVentas="CR01" this:SAP_MM01_Ventana_NivelesOrganizacion.in_CanalDistr="13" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Centro" Type="InArgument(x:String)" />
     <x:Property Name="in_Almacen" Type="InArgument(x:String)" />
     <x:Property Name="in_OrgVentas" Type="InArgument(x:String)" />
     <x:Property Name="in_CanalDistr" Type="InArgument(x:String)" />
   </x:Members>
-  <this:SAP_MM01_Ventana_NivelesOrganizacion.in_Centro>
-    <InArgument x:TypeArguments="x:String" />
-  </this:SAP_MM01_Ventana_NivelesOrganizacion.in_Centro>
-  <this:SAP_MM01_Ventana_NivelesOrganizacion.in_Almacen>
-    <InArgument x:TypeArguments="x:String" />
-  </this:SAP_MM01_Ventana_NivelesOrganizacion.in_Almacen>
-  <this:SAP_MM01_Ventana_NivelesOrganizacion.in_OrgVentas>
-    <InArgument x:TypeArguments="x:String" />
-  </this:SAP_MM01_Ventana_NivelesOrganizacion.in_OrgVentas>
-  <this:SAP_MM01_Ventana_NivelesOrganizacion.in_CanalDistr>
-    <InArgument x:TypeArguments="x:String" />
-  </this:SAP_MM01_Ventana_NivelesOrganizacion.in_CanalDistr>
-  <sap:VirtualizedContainerService.HintSize>728,905</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>607,2293</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -78,7 +66,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SAP_MM01_Ventana_Niveles_Organizacion" sap:VirtualizedContainerService.HintSize="242,840" sap2010:WorkflowViewState.IdRef="Sequence_17">
+  <Sequence DisplayName="SAP_MM01_Ventana_Niveles_Organizacion" sap:VirtualizedContainerService.HintSize="526,2228" sap2010:WorkflowViewState.IdRef="Sequence_17">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="vBoolGeneral" />
     </Sequence.Variables>
@@ -88,7 +76,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Validacione argumntos" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="Validacione argumntos" sap:VirtualizedContainerService.HintSize="484,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -124,7 +112,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <If Condition="[in_Centro.Contains(&quot;(&quot;) and in_Centro.Contains(&quot;)&quot;)]" DisplayName="Check Centro contains ()" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[in_Centro.Contains(&quot;(&quot;) and in_Centro.Contains(&quot;)&quot;)]" DisplayName="Check Centro contains ()" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -166,10 +154,10 @@
         </Sequence>
       </If.Else>
     </If>
-    <Sequence DisplayName="Escritura izquierda" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence DisplayName="Escritura izquierda" sap:VirtualizedContainerService.HintSize="484,416" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -247,12 +235,30 @@
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;[SAP_MM01_ExtenderAlmacen] No hay Info inicial para Organizacion de ventas.&quot;]" />
         </If.Then>
         <If.Else>
-          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Organización'" EmptyField="True" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[in_OrgVentas]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="20d7d55f-ad53-4bcd-a1e4-ff6f5610388b" InformativeScreenshot="8723d9bfc593f76e71266c290610d5a1" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Niveles de organización' idx='*' /&gt;&lt;sap id='usr/ctxtRMMG1-VKORG' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:TypeInto>
           </Sequence>
         </If.Else>
       </If>
@@ -267,17 +273,30 @@
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;[SAP_MM01_ExtenderAlmacen] No hay Info inicial para Canal distribuidor.&quot;]" />
         </If.Then>
         <If.Else>
-          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Canal'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[in_CanalDistr+ &quot;[k(tab)]&quot;]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="525a2131-0155-448c-907a-b78382e0790f" InformativeScreenshot="b2b6ee32e0d796a3232ad17ba73ca407" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Niveles de organización' idx='*' /&gt;&lt;sap id='usr/ctxtRMMG1-VTWEG' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
           </Sequence>
         </If.Else>
       </If>
     </Sequence>
-    <Sequence DisplayName="Escritura Modelo" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence DisplayName="Escritura Modelo" sap:VirtualizedContainerService.HintSize="484,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -425,10 +444,10 @@
       </ui:Click>
       <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Click 'X Almacen'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
         <ui:Click.CursorPosition>
-          <ui:CursorPosition OffsetX="-25" OffsetY="-5" Position="BottomLeft" />
+          <ui:CursorPosition OffsetX="19" OffsetY="11" Position="TopLeft" />
         </ui:Click.CursorPosition>
         <ui:Click.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39342c92-9819-4351-9c9d-f56137f63356" InformativeScreenshot="372d401badebcdba9711cd6448bdb92f" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='#32770' title='Entradas posibles*' idx='*' /&gt;&lt;sap id='usr/cntlGRID1/shellcont/shell' colTooltip='Centro' text='&quot;+in_Centro+&quot;' /&gt;&quot;]">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39342c92-9819-4351-9c9d-f56137f63356" InformativeScreenshot="2e6acff172be7e57b5ba017530f1b624" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Entradas posibles: Almacenes' idx='*' /&gt;&lt;sap colName='KZEXIST' id='usr/cntlGRID1/shellcont/shell' tableRow='0' /&gt;">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -617,14 +636,14 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
     </Sequence>
-    <Sequence DisplayName="Validacion izquierda" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="Validacion izquierda" sap:VirtualizedContainerService.HintSize="484,416" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="vStrOrgnModelo" />
         <Variable x:TypeArguments="x:String" Name="vStrCanalDistr" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -749,7 +768,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button Continuar'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button Continuar'" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -777,7 +796,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:Click>
-    <ui:UiElementExists DisplayName="Element Exists 'Error'" Exists="[vBoolGeneral]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+    <ui:UiElementExists DisplayName="Element Exists 'Error'" Exists="[vBoolGeneral]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="047f68bb-0444-485c-9449-57895b6dd1ca" InformativeScreenshot="8d04ab2ebe37132350bc4c6fae13dea0" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Error' idx='*' /&gt;&lt;sap id='tbar[0]/btn[0]' /&gt;" TimeoutMS="2000">
           <ui:Target.WaitForReady>
@@ -792,15 +811,15 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:UiElementExists>
-    <If Condition="[vBoolGeneral]" DisplayName="Check error" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_9">
+    <If Condition="[vBoolGeneral]" DisplayName="Check error" sap:VirtualizedContainerService.HintSize="484,739" sap2010:WorkflowViewState.IdRef="If_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,406" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,552" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="vStrError" />
           </Sequence.Variables>
@@ -837,6 +856,28 @@
             </ui:Click.CursorPosition>
             <ui:Click.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4dd57ee6-edfa-425a-9568-1583c8554efe" InformativeScreenshot="aebf5d938f3f022b3381c418ea5641aa" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Error' idx='*' /&gt;&lt;sap id='tbar[0]/btn[0]' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Click.Target>
+          </ui:Click>
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Cerrar'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4dd57ee6-edfa-425a-9568-1583c8554efe" InformativeScreenshot="fbd92cde39bd08a4b865e9ced6975b09" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Niveles de organización' idx='*' /&gt;&lt;sap id='tbar[0]/btn[12]' /&gt;">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
